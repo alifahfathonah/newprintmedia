@@ -1,0 +1,3 @@
+https://stackoverflow.com/questions/14644353/get-the-number-of-pages-in-a-pdf-document
+
+http://usefulangle.com/post/20/pdfjs-tutorial-1-preview-pdf-during-upload-wih-next-prev-buttons
