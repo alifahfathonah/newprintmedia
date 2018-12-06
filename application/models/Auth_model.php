@@ -48,8 +48,36 @@ class Auth_model extends CI_Model{
 		$ci->email->to($email);
 		$ci->email->subject('AKTIFASI AKUN PRINT MEDIA');
 		$ci->email->message($isi);
-        $this->email->send();
-        $query = $this->db->insert('pm1_auth', $data);
+		$this->email->send();
+		if ($this->agent->is_browser())
+		{
+			$agent = $this->agent->browser().' '.$this->agent->version();
+		}
+		elseif ($this->agent->is_robot())
+		{
+			$agent = $this->agent->robot();
+		}
+		elseif ($this->agent->is_mobile())
+		{
+			$agent = $this->agent->mobile();
+		}
+		else
+		{
+			$agent = 'Unidentified User Agent';
+		}
+
+		date_default_timezone_set("Asia/Jakarta");
+		$data_log = array(
+			'pm0_loginregister_email' => $this->input->post('email'),
+			'pm0_loginregister_ip' => $this->input->ip_address(),
+			'pm0_loginregister_browser' => $agent,
+			'pm0_loginregister_platform' => $this->agent->platform(),
+			'pm0_loginregister_time' => date('Y-m-d h:i:s'),
+			'pm0_loginregister_information' => 'Register',
+			'pm0_loginregister_session' => session_id(),
+		);
+		$data_log = $this->Auth_model->Insert('pm0_loginregister', $data_log);
+		$query = $this->db->insert('pm1_auth', $data);
         return $query;
     }
 
