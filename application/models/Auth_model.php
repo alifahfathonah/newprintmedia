@@ -12,13 +12,15 @@ class Auth_model extends CI_Model{
     {
         date_default_timezone_set("Asia/Jakarta");
 		$data = array(
-		    'email' => $this->input->post('email', TRUE),
-			'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
-			'level' => 'Member',
-			'token' => md5($this->input->post('email', TRUE)),
-			'waktu' => date('Y-m-d H:i:s'),
-			'status' => 'Belum Aktif',
-        );
+		    'pm1_auth_email' => $this->input->post('email'),
+			'pm1_auth_password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT),
+			'pm1_auth_level' => 'Member',
+			'pm1_auth_token' => md5($this->input->post('email')),
+			'pm1_auth_time' => date('Y-m-d H:i:s'),
+			'pm1_auth_status' => 'Belum Aktif',
+		);
+		
+		// STATUS = Aktif, Belum Aktif, Suspend,
         
         $ci = get_instance();
 		$ci->load->library('email');
@@ -47,7 +49,7 @@ class Auth_model extends CI_Model{
 		$ci->email->subject('AKTIFASI AKUN PRINT MEDIA');
 		$ci->email->message($isi);
         $this->email->send();
-        $query = $this->db->insert('auth', $data);
+        $query = $this->db->insert('pm1_auth', $data);
         return $query;
     }
 
@@ -88,19 +90,19 @@ class Auth_model extends CI_Model{
         $email      = $this->input->post('email');
         $password   = $this->input->post('password');
 
-        $this->db->from('auth');
-        $this->db->select('email, password, level, status');
-        $this->db->where('email', $email);
+        $this->db->from('pm1_auth');
+        $this->db->select('pm1_auth_email, pm1_auth_password, pm1_auth_level, pm1_auth_status');
+        $this->db->where('pm1_auth_email', $email);
 		$query = $this->db->get();
 		
         if($query->num_rows() > 0)
         {
             $data = $query->row_array();
-            if(password_verify($password, $data['password']))
+            if(password_verify($password, $data['pm1_auth_password']))
             {
-                if($data['status'] == 'Aktif')
+                if($data['pm1_auth_status'] == 'Aktif')
 				{
-					if($data['level'] === 'Member' )
+					if($data['pm1_auth_level'] === 'Member' )
 					{
 						$this->session->set_userdata('akses', 'Member');
 						$this->session->set_userdata('email', $data['email']);
@@ -125,35 +127,36 @@ class Auth_model extends CI_Model{
 
 						date_default_timezone_set("Asia/Jakarta");
 						$data = array(
-							'email' => $this->input->post('email'),
-							'alamat_ip' => $this->input->ip_address(),
-							'browser' => $agent.' - '.$this->agent->platform(),
-							'waktu_masuk' => date('Y-m-d h:i:s'),
-							'keterangan' => 'Melakukan Login',
-							'session' => session_id(),
+							'pm0_loginregister_email' => $this->input->post('email'),
+							'pm0_loginregister_ip' => $this->input->ip_address(),
+							'pm0_loginregister_browser' => $agent,
+							'pm0_loginregister_platform' => $this->agent->platform(),
+							'pm0_loginregister_time' => date('Y-m-d h:i:s'),
+							'pm0_loginregister_information' => 'Login',
+							'pm0_loginregister_session' => session_id(),
 						);
-						$data = $this->Auth_model->Insert('activity_user', $data);
+						$data = $this->Auth_model->Insert('pm0_loginregister', $data);
 						redirect(base_url('user/index'));
 					}
 					
-					if($data['level'] === 'Developer')
+					if($data['pm1_auth_level'] === 'Developer')
 					{
 						$this->session->set_flashdata('error', 'Gagal Login!');
 						redirect(base_url('login'));
 					}
 					
-					if($data['level'] === 'Mitra')
+					if($data['pm1_auth_level'] === 'Mitra')
 					{
 						$this->session->set_flashdata('error', 'Gagal Login!');
 						redirect(base_url('login'));
 					}
 				}
-				if($data['status'] == 'Belum Aktif')
+				if($data['pm1_auth_status'] == 'Belum Aktif')
 				{
 					$this->session->set_flashdata('belumaktif', 'Gagal Login!');
 					redirect(base_url('login'));
 				}
-				if($data['status'] == 'Suspend')
+				if($data['pm1_auth_status'] == 'Suspend')
 				{
 					$this->session->set_flashdata('error', 'Maaf! Akun Anda telah kami <b>SUSPEND</b>. Karena terbukti melanggar beberapa peraturan yang telah diterapkan. Harap hubungi kami melalui menu Kontak, jika terbukti tidak melakukan kesalahan.');
 					redirect(base_url('login'));
@@ -189,7 +192,7 @@ class Auth_model extends CI_Model{
         $data = array(
             'status' => 'Aktif',
         );
-        $this->db->from('auth');
+        $this->db->from('pm1_auth');
         $this->db->where('token', $email);
         $this->db->update('auth', $data);
         return true;

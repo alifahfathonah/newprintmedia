@@ -15,7 +15,7 @@ class Auth extends CI_Controller {
 
 	public function prosesregister()
 	{
-		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[auth.email]|valid_email|valid_emails|xss_clean');
+		$this->form_validation->set_rules('email', 'Email', 'trim|required|is_unique[pm1_auth.pm1_auth_email]|valid_email|valid_emails|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|max_length[15]|xss_clean');
 		$this->form_validation->set_message('required', 'Mohon Maaf! Harap mengisi kolom <b>%s</b>.');
 		$this->form_validation->set_message('is_unique', 'Mohon Maaf! <b>%s</b> sudah digunakan.');
@@ -32,7 +32,7 @@ class Auth extends CI_Controller {
 		{
 			if(preg_match("/ac.id/", $this->input->post('email', TRUE)) || preg_match("/.edu/", $this->input->post('email', TRUE)) ) 
 			{
-				$data = $this->Auth_model->daftarUser();
+				$this->Auth_model->daftarUser();
 				$this->session->set_flashdata('success', 'Berhasil Mendaftar!');
 				redirect(base_url('register'));
 			} 
@@ -40,7 +40,7 @@ class Auth extends CI_Controller {
 			{ 
 				$this->session->set_flashdata('error', 'Gagal Mendaftar!');
 				redirect(base_url('register'));
-			}  
+			}
 		}
 	}
 
