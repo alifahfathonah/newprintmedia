@@ -47,10 +47,16 @@ class Auth extends CI_Controller {
 	public function aktivasi($token)
 	{
 		$this->Auth_model->aktivasi($token);
-		$where = array('token' => $token);
-		$data = $this->Auth_model->GetWhere('auth', $where);
+		$where = array('pm1_auth_token' => $token);
+		$data = $this->Auth_model->GetWhere('pm1_auth', $where);
 		$data = array('data' => $data);
+		// var_dump($data);
 		$this->load->view('auth/suksesaktivasi', $data);
+	}
+
+	public function test()
+	{
+
 	}
 
 	public function login()

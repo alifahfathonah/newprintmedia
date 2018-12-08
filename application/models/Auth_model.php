@@ -215,14 +215,14 @@ class Auth_model extends CI_Model{
         return $res;
     }
     
-    public function aktivasi($email)
+    public function aktivasi($token)
     {
         $data = array(
-            'status' => 'Aktif',
+            'pm1_auth_status' => 'Aktif',
         );
         $this->db->from('pm1_auth');
-        $this->db->where('token', $email);
-        $this->db->update('auth', $data);
+        $this->db->where('pm1_auth_token', $token);
+        $this->db->update('pm1_auth', $data);
         return true;
     }
 
