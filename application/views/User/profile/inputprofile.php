@@ -152,7 +152,7 @@
                               <label class="label">Provinsi : </label>
                               <select name="provinsi" class="form-control" id="provinsi">
                                 <?php
-                                $this->db->from('provinces');
+                                $this->db->from('pm2_provinces');
                                 $provinsi = $this->db->get();
                                 $data_provinsi = $provinsi->result_array();
                                 foreach($data_provinsi as $row) {
@@ -223,12 +223,12 @@
                           <div class="col-sm-9 select">
                             <select name="universitas" class="form-control" id="universitas">
                             <?php
-                              $this->db->from('universitas');
+                              $this->db->from('pm3_university');
                               $universitas = $this->db->get();
                               $data_universitas = $universitas->result_array();
                               foreach($data_universitas as $row) {
                             ?>
-                              <option value="<?php echo $row['universitas_id']; ?>"><?php echo $row['nama_univ']; ?></option>
+                              <option value="<?php echo $row['pm3_university_id']; ?>"><?php echo $row['pm3_university_name']; ?></option>
                             <?php } ?>                                                                  
                         </select>
                           </div>
@@ -240,12 +240,12 @@
                             <label class="label">Jurusan : </label>
                             <select name="jurusan" class="form-control" id="jurusan">
                             <?php
-                              $this->db->from('jurusan');
+                              $this->db->from('pm3_major');
                               $jurusan = $this->db->get();
                               $data_jurusan = $jurusan->result_array();
                               foreach($data_jurusan as $row) {
                             ?>
-                              <option value="<?php echo $row['jurusan_id']; ?>"><?php echo $row['jurusan']; ?></option>
+                              <option value="<?php echo $row['pm3_major_id']; ?>"><?php echo $row['pm3_major_name']; ?></option>
                             <?php } ?>                                                                  
                             </select>
                             </div>
@@ -256,12 +256,12 @@
                             <label class="label">Jenjang : </label>
                             <select name="jenjang" class="form-control" id="jenjang">
                             <?php
-                              $this->db->from('jenjang');
+                              $this->db->from('pm3_degree');
                               $jenjang = $this->db->get();
                               $data_jenjang = $jenjang->result_array();
                               foreach($data_jenjang as $row) {
                             ?>
-                              <option value="<?php echo $row['jenjang_id']; ?>"><?php echo $row['jenjang']; ?></option>
+                              <option value="<?php echo $row['pm3_degree_id']; ?>"><?php echo $row['pm3_degree_name']; ?></option>
                             <?php } ?>                                                                  
                             </select>
                             </div>
@@ -274,13 +274,13 @@
                               <label class="label">Tahun Masuk : </label>
                                 <select name="tahun_masuk" class="form-control" id="tahun_masuk">
                                 <?php
-                                  $this->db->from('tahun');
+                                  $this->db->from('pm3_year');
                                   $this->db->limit(10);
                                   $tahun = $this->db->get();
                                   $data_tahun = $tahun->result_array();
                                   foreach($data_tahun as $row) {
                                 ?>
-                                  <option value="<?php echo $row['tahun_id']; ?>"><?php echo $row['tahun']; ?></option>
+                                  <option value="<?php echo $row['pm3_year_id']; ?>"><?php echo $row['pm3_year_name']; ?></option>
                                 <?php } ?>
                                 </select>
                             </div>
@@ -291,12 +291,12 @@
                               <label class="label">Tahun Keluar : </label>
                                 <select name="tahun_keluar" class="form-control" id="tahun_keluar">                                  
                                 <?php
-                                  $this->db->from('tahun');
+                                  $this->db->from('pm3_year');
                                   $tahun = $this->db->get();
                                   $data_tahun = $tahun->result_array();
                                   foreach($data_tahun as $row) {
                                 ?>
-                                  <option value="<?php echo $row['tahun_id']; ?>"><?php echo $row['tahun']; ?></option>
+                                  <option value="<?php echo $row['pm3_year_id']; ?>"><?php echo $row['pm3_year_name']; ?></option>
                                 <?php } ?>
                               </select>
                             </div>

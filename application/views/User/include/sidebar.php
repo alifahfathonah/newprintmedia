@@ -4,11 +4,11 @@
           <div class="sidebar-header d-flex align-items-center">            
             <div class="title">
             <?php
-            $email = array('email' => $this->session->userdata('email')) ;
-            $cek = $this->User_model->GetWhere('user', $email);
+            $email = array('pm1_user_email' => $this->session->userdata('email')) ;
+            $cek = $this->User_model->GetWhere('pm1_user', $email);
             $cek = $cek->row_array();
             ?>
-              <h1 class="h4"><?php echo $cek['nama']; ?></h1>
+              <h1 class="h4"><?php echo $cek['pm1_user_name']; ?></h1>
               <p><?php echo $this->session->userdata('email');?></p>
             </div>
           </div>

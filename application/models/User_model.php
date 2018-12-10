@@ -15,9 +15,9 @@ class User_model extends CI_Model{
 
     public function cekUser($where)
     {
-        $this->db->from('user');
-        $this->db->select('nama, email'); // nama kolom di tabel database
-        $this->db->where('email', $where);
+        $this->db->from('pm1_user');
+        $this->db->select('pm1_user_name, pm1_user_email'); // nama kolom di tabel database
+        $this->db->where('pm1_user_email', $where);
         $res = $this->db->get();
         return $res;
     }
@@ -26,25 +26,25 @@ class User_model extends CI_Model{
     {
         $data = array
         (
-            'nama' => $this->input->post('nama_lengkap'), // Kiri Nama Kolom
-            'nohape' => $this->input->post('no_handphone'), // Kanan nama form di views
-            'gender' => $this->input->post('jenis_kelamin'),
-            'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-            'email' => $this->input->post('email'),
-            'alamat' => $this->input->post('alamat'),
-            'detail_alamat' => $this->input->post('detail_alamat'),
-            'provinsi' => $this->input->post('provinsi'),
-            'kota' => $this->input->post('kota'),
-            'kecamatan' => $this->input->post('kecamatan'),				
-            'kodepos' => $this->input->post('kodepos'),
-            'universitas' => $this->input->post('universitas'),
-            'jurusan' => $this->input->post('jurusan'),
-            'jenjang' => $this->input->post('jenjang'),
-            'tahun_masuk' => $this->input->post('tahun_masuk'),
-            'tahun_keluar' => $this->input->post('tahun_keluar'),
+            'pm1_user_name' => $this->input->post('nama_lengkap'), // Kiri Nama Kolom
+            'pm1_user_phonenumber' => $this->input->post('no_handphone'), // Kanan nama form di views
+            'pm1_user_gender' => $this->input->post('jenis_kelamin'),
+            'pm1_user_birthdate' => $this->input->post('tanggal_lahir'),
+            'pm1_user_email' => $this->input->post('email'),
+            'pm1_user_address' => $this->input->post('alamat'),
+            'pm1_user_detailaddress' => $this->input->post('detail_alamat'),
+            'pm1_user_province' => $this->input->post('provinsi'),
+            'pm1_user_regency' => $this->input->post('kota'),
+            'pm1_user_district' => $this->input->post('kecamatan'),				
+            'pm1_user_poscode' => $this->input->post('kodepos'),
+            'pm1_user_university' => $this->input->post('universitas'),
+            'pm1_user_major' => $this->input->post('jurusan'),
+            'pm1_user_degree' => $this->input->post('jenjang'),
+            'pm1_user_in' => $this->input->post('tahun_masuk'),
+            'pm1_user_out' => $this->input->post('tahun_keluar'),
         );
         
-        $res = $this->db->insert('user', $data);
+        $res = $this->db->insert('pm1_user', $data);
         return $res;
         
     }
@@ -70,7 +70,7 @@ class User_model extends CI_Model{
     public function viewByProvinsi($province_id)
     {
         $this->db->where('province_id', $province_id);
-        $result = $this->db->get('regencies')->result_array(); // Tampilkan semua data kota berdasarkan id provinsi
+        $result = $this->db->get('pm2_regencies')->result_array(); // Tampilkan semua data kota berdasarkan id provinsi
         
         return $result; 
     }
@@ -78,7 +78,7 @@ class User_model extends CI_Model{
     public function viewByKota($regency_id)
     {
         $this->db->where('regency_id', $regency_id);
-        $result = $this->db->get('districts')->result_array(); // Tampilkan semua data kecamatan berdasarkan id kota
+        $result = $this->db->get('pm2_districts')->result_array(); // Tampilkan semua data kecamatan berdasarkan id kota
         
         return $result; 
     }

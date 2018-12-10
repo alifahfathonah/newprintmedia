@@ -34,8 +34,8 @@ class User extends CI_Controller
 
 	public function inputprofile()
 	{
-		$email = array('email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->GetWhere('user', $email);
+		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->GetWhere('pm1_user', $email);
 		$cek = $cek->row_array();
 		$this->load->view('user/profile/inputprofile');
 	}
@@ -179,6 +179,7 @@ class User extends CI_Controller
 		echo $this->upload->display_errors();
 	}
 
+	// Bagian Alamat
 	public function listkota()
 	{
 		// Ambil data ID Provinsi yang dikirim via ajax post
@@ -188,7 +189,7 @@ class User extends CI_Controller
 		
 		// Buat variabel untuk menampung tag-tag option nya
 		// Set defaultnya dengan tag option Pilih
-		$lists = "<option value=''>Pilih</option>";
+		$lists = "<option value=''>Pilih Kota/Kabupaten</option>";
 		
 		foreach($kota as $data){
 		  $lists .= "<option value='".$data['id']."'>".$data['name']."</option>"; // Tambahkan tag option ke variabel $lists
@@ -207,7 +208,7 @@ class User extends CI_Controller
 		
 		// Buat variabel untuk menampung tag-tag option nya
 		// Set defaultnya dengan tag option Pilih
-		$lists = "<option value=''>Pilih</option>";
+		$lists = "<option value=''>Pilih Kecamatan</option>";
 		
 		foreach($kota as $data){
 		  $lists .= "<option value='".$data['id']."'>".$data['name']."</option>"; // Tambahkan tag option ke variabel $lists
