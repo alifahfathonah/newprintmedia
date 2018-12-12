@@ -26,15 +26,6 @@
             <p class="lead">
                 Terima kasih <b><?php echo $data[0]['pm1_auth_email']; ?></b> telah melakukan aktivasi.<br> Silahkan <a href="<?php echo base_url('login'); ?>" class="text-dark">LOGIN!</a>
             </p>
-            <?php 
-            $time = $data[0]['pm1_auth_time']; $times = date('d', strtotime($time)); echo $times; 
-            echo "<br>";
-            date_default_timezone_get('Asia/Jakarta');
-            $a = new DateTime($time);
-            $b = new DateTime();
-            $c = $a->diff($b);
-            echo $c->h;
-            ?>
         </div>
     </div>
 </section>
@@ -46,23 +37,5 @@
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"  crossorigin="anonymous"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 
-<script>
-$(document).ready(function(){
-    var scroll_start = 0;
-    var startchange = $('#mulai');
-    var offset = startchange.offset();
-    if (startchange.length){
-    $(document).scroll(function() { 
-        scroll_start = $(this).scrollTop();
-        if(scroll_start > offset.top) {
-            $(".navbar").css('background-color', '#fff');
-        } 
-        else {
-            $('.navbar').css('background-color', 'transparent');
-       }
-    });
-    }
-});
-</script>
 </body>
 </html>

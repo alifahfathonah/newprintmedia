@@ -56,7 +56,7 @@ class Auth extends CI_Controller {
 
 	public function test()
 	{
-
+		
 	}
 
 	public function login()
@@ -191,5 +191,10 @@ class Auth extends CI_Controller {
 				}	
 			}
 		}
+	}
+
+	public function lupaakun()
+	{
+		
 	}
 }

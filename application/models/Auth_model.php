@@ -133,7 +133,7 @@ class Auth_model extends CI_Model{
 					if($data['pm1_auth_level'] === 'Member' )
 					{
 						$this->session->set_userdata('akses', 'Member');
-						$this->session->set_userdata('email', $data['email']);
+						$this->session->set_userdata('email', $data['pm1_auth_email']);
 						$this->session->set_userdata('status', 'login');
 
 						if ($this->agent->is_browser())
@@ -229,6 +229,5 @@ class Auth_model extends CI_Model{
     public function GetWhere($table, $data){
         $res=$this->db->get_where($table, $data);
         return $res->result_array();
-    }
-
+	}
 }

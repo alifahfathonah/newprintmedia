@@ -19,7 +19,10 @@
 
 <section class="section section-auth desktop" id="mulai">
     <div class="container">
+        <!-- AWAL ROW -->
         <div class="row">
+            <div class="col-lg-3"></div>
+            <!-- TENGAH -->
             <div class="col-lg-6 col-md-12 col-sm-12">
                 <div class="intro-kiri" style="padding-top:5px">
                     <div class="card">
@@ -87,13 +90,14 @@
                                 </div>
                             </div>
                         <?php echo form_close(); ?>
+                        <a href="<?php echo base_url('lupaemail'); ?>" class="text-center text-danger">Lupa Akun?</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <img src="<?php echo base_url('asset/home/img/intro-foto.png'); ?>" alt="" class="img-fluid">
-            </div>
+            <!-- TENGAH -->
+            <div class="col-lg-3"></div>
         </div>
+        <!-- AKHIR ROW -->
     </div> 
 </section>
 

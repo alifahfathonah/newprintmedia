@@ -63,8 +63,8 @@ class User extends CI_Controller
 
 	public function upload()
 	{
-		$email = array('email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('user', $email);
+		$email = array('pm1_user_email' => $this->session->userdata('pm1_user_email')) ;
+		$cek = $this->User_model->tampilProfile('pm1_user', $email);
 		$cek=array('cek'=> $cek);
 		$this->load->view('user/upload', $cek);
 	}
