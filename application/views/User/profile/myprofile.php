@@ -75,7 +75,7 @@
                             <div class="form-group">
                               <label class="label">Nama Lengkap : </label>
                               <?php                              
-                                $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nama_lengkap', 'id' => 'nama_lengkap', 'value' => $info['nama'], 'readonly' => 'true'); 
+                                $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nama_lengkap', 'id' => 'nama_lengkap', 'value' => $info['pm1_user_name'], 'readonly' => 'true'); 
                                 echo form_input($data);                                                            
                                 ?>                           
                             </div>
@@ -85,7 +85,7 @@
                             <div class="form-group">
                               <label class="label">No. Handphone : </label>
                                 <?php 
-                                    $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'no_handphone', 'id' => 'no_handphone', 'value' => $info['nohape'], 'readonly'=>'true'); 
+                                    $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'no_handphone', 'id' => 'no_handphone', 'value' => $info['pm1_user_phonenumber'], 'readonly'=>'true'); 
                                     echo form_input($data);                              
                                 ?>                                                   
                             </div>   
@@ -99,7 +99,7 @@
                             <div class="form-group">
                               <label class="label">Jenis Kelamin : </label>
                                 <?php 
-                                    $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'jenis_kelamin', 'id' => 'no_handphone', 'value' => $info['gender'], 'readonly'=>'true'); 
+                                    $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'jenis_kelamin', 'id' => 'no_handphone', 'value' => $info['pm1_user_gender'], 'readonly'=>'true'); 
                                     echo form_input($data);                          
                                 ?>                        
                             </div>
@@ -110,7 +110,7 @@
                               <i class="fa fa-calendar"></i>
                               <label class="label">Tanggal Lahir : </label>
                                 <?php
-                                    $data = array('type'=>'text', 'class' => 'form-control', 'name' => 'tanggal_lahir','value' => $info['tanggal_lahir'], 'readonly' => 'true');
+                                    $data = array('type'=>'text', 'class' => 'form-control', 'name' => 'tanggal_lahir','value' => $info['pm1_user_birthdate'], 'readonly' => 'true');
                                     echo form_input($data);
                                 ?>                                                                     
                             </div>
@@ -133,7 +133,7 @@
                           <label class="col-sm-3 form-control-label">Alamat Asal</label>
                             <div class="col-sm-9">
                             <?php
-                                $data = array('class' => 'form-control', 'name' => 'alamat', 'value' => $info['alamat'], 'rows' => 3, 'readonly' => 'true');
+                                $data = array('class' => 'form-control', 'name' => 'alamat', 'value' => $info['pm1_user_address'], 'rows' => 3, 'readonly' => 'true');
                                 echo form_textarea($data);
                             ?>
                                 <small>Alamat asal (bukan tempat kost). Misal: Jl. Jembrana XI no 5</small>
@@ -146,7 +146,7 @@
                           <label class="col-sm-3 form-control-label">Detail Tempat Tinggal</label>
                             <div class="col-sm-9">
                             <?php
-                            $data = array('class' => 'form-control', 'name' => 'detail_alamat', 'rows' => 3,'value' => $info['detail_alamat'], 'readonly' => 'true');
+                            $data = array('class' => 'form-control', 'name' => 'detail_alamat', 'rows' => 3,'value' => $info['pm1_user_detailaddress'], 'readonly' => 'true');
                             echo form_textarea($data);
                             ?>
                             <small>Misal: Perumahan Elok Permai Blok BC, RT/RW 03/09</small>
@@ -160,8 +160,8 @@
                             <div class="form-group">
                               <label class="label">Provinsi : </label>
                                 <?php                    
-                                    $data = array('id' => $info['provinsi']) ;
-                                    $provinsi = $this->db->get_where('provinces', $data);
+                                    $data = array('id' => $info['pm1_user_province']) ;
+                                    $provinsi = $this->db->get_where('pm2_provinces', $data);
                                     $data_provinsi = $provinsi->result_array();
     
                                     $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'provinsi', 'id' => 'provinsi', 'value' => $data_provinsi[0]['name'], 'readonly'=>'true'); 
@@ -174,8 +174,8 @@
                             <div class="form-group">
                               <label class="label">Kota/Kabupaten : </label>
                               <?php                    
-                              $data = array('id' => $info['kota']) ;
-                              $kota = $this->db->get_where('regencies', $data);
+                              $data = array('id' => $info['pm1_user_regency']) ;
+                              $kota = $this->db->get_where('pm2_regencies', $data);
                               $data_kota = $kota->result_array();
     
                               $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'provinsi', 'id' => 'provinsi', 'value' => $data_kota[0]['name'], 'readonly'=>'true'); 
@@ -188,8 +188,8 @@
                             <div class="form-group">
                               <label class="label">Kecamatan : </label>
                               <?php                    
-                              $data = array('id' => $info['kecamatan']) ;
-                              $kecamatan = $this->db->get_where('districts', $data);
+                              $data = array('id' => $info['pm1_user_district']) ;
+                              $kecamatan = $this->db->get_where('pm2_districts', $data);
                               $data_kecamatan = $kecamatan->result_array();
 
                               $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'provinsi', 'id' => 'provinsi', 'value' => $data_kecamatan[0]['name'], 'readonly'=>'true'); 
@@ -202,7 +202,7 @@
                             <div class="form-group">
                               <label class="label">Kode Pos : </label>
                               <?php 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'provinsi', 'id' => 'provinsi', 'value' => $info['kodepos'], 'readonly'=>'true'); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'provinsi', 'id' => 'provinsi', 'value' => $info['pm1_user_poscode'], 'readonly'=>'true'); 
                               echo form_input($data);                          
                             ?>  
                             </div>
@@ -232,11 +232,11 @@
                           <label class="col-sm-3 form-control-label">Universitas</label>
                           <div class="col-sm-9 select">
                           <?php                    
-                              $data = array('universitas_id' => $info['universitas']) ;
-                              $universitas = $this->db->get_where('universitas', $data);
+                              $data = array('pm3_university_id' => $info['pm1_user_university']) ;
+                              $universitas = $this->db->get_where('pm3_university', $data);
                               $data_universitas = $universitas->result_array();
 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'universitas', 'id' => 'universitas', 'value' => $data_universitas[0]['nama_univ'], 'readonly'=>'true'); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'universitas', 'id' => 'universitas', 'value' => $data_universitas[0]['pm3_university_name'], 'readonly'=>'true'); 
                               echo form_input($data);                          
                             ?> 
                           </div>
@@ -247,11 +247,11 @@
                           <div class="form-group">
                           <label class="label">Jurusan : </label>                        
                           <?php                    
-                              $data = array('jurusan_id' => $info['jurusan']) ;
-                              $jurusan = $this->db->get_where('jurusan', $data);
+                              $data = array('pm3_major_id' => $info['pm1_user_major']) ;
+                              $jurusan = $this->db->get_where('pm3_major', $data);
                               $data_jurusan = $jurusan->result_array();
 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'jurusan', 'id' => 'jurusan', 'value' => $data_jurusan[0]['jurusan'], 'readonly'=>'true'); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'jurusan', 'id' => 'jurusan', 'value' => $data_jurusan[0]['pm3_major_name'], 'readonly'=>'true'); 
                               echo form_input($data);                          
                             ?>                        
                         </div>
@@ -261,11 +261,11 @@
                           <div class="form-group">
                           <label class="label">Jenjang : </label>                     
                           <?php                    
-                              $data = array('jenjang_id' => $info['jenjang']) ;
-                              $jenjang = $this->db->get_where('jenjang', $data);
+                              $data = array('pm3_degree_id' => $info['pm1_user_degree']) ;
+                              $jenjang = $this->db->get_where('pm3_degree', $data);
                               $data_jenjang = $jenjang->result_array();
 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'jenjang', 'id' => 'jenjang', 'value' => $data_jenjang[0]['jenjang'], 'readonly'=>'true'); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'jenjang', 'id' => 'jenjang', 'value' => $data_jenjang[0]['pm3_degree_name'], 'readonly'=>'true'); 
                               echo form_input($data);                          
                               ?>                     
                         </div>
@@ -281,11 +281,11 @@
                             <div class="form-group">
                               <label class="label">Tahun Masuk : </label>
                               <?php                    
-                              $data = array('tahun_id' => $info['tahun_masuk']) ;
-                              $tahun_masuk = $this->db->get_where('tahun', $data);
+                              $data = array('pm3_year_id' => $info['pm1_user_in']) ;
+                              $tahun_masuk = $this->db->get_where('pm3_year', $data);
                               $data_tahunmasuk = $tahun_masuk->result_array();
 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'tahun_masuk', 'id' => 'tahun_masuk', 'value' => $data_tahunmasuk[0]['tahun'], 'readonly'=>'true'); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'tahun_masuk', 'id' => 'tahun_masuk', 'value' => $data_tahunmasuk[0]['pm3_year_name'], 'readonly'=>'true'); 
                               echo form_input($data);                          
                               ?> 
                             </div>
@@ -295,11 +295,11 @@
                             <div class="form-group">
                               <label class="label">Tahun Keluar : </label>
                               <?php                    
-                              $data = array('tahun_id' => $info['tahun_keluar']) ;
-                              $tahun_keluar = $this->db->get_where('tahun', $data);
+                              $data = array('pm3_year_id' => $info['pm1_user_out']) ;
+                              $tahun_keluar = $this->db->get_where('pm3_year', $data);
                               $data_tahunkeluar = $tahun_keluar->result_array();
 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'tahun_keluar', 'id' => 'tahun_keluar', 'value' => $data_tahunkeluar[0]['tahun'], 'readonly'=>'true'); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'tahun_keluar', 'id' => 'tahun_keluar', 'value' => $data_tahunkeluar[0]['pm3_year_name'], 'readonly'=>'true'); 
                               echo form_input($data);                          
                               ?> 
                             </div>

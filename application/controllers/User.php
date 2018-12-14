@@ -22,7 +22,7 @@ class User extends CI_Controller
 		}
 		else
 		{
-			$this->session->set_userdata('username', $cek['nama']);
+			$this->session->set_userdata('username', $cek['pm1_user_name']);
 			$this->load->view('user/dashboard');
 		}
 	}
@@ -42,16 +42,16 @@ class User extends CI_Controller
 
 	public function editprofile()
 	{
-		$email = array('email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('user', $email);
+		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->tampilProfile('pm1_user', $email);
 		$cek=array('cek'=> $cek);
 		$this->load->view('user/profile/editprofile', $cek);
 	}
 
 	public function myprofile()
 	{	
-		$email = array('email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('user', $email);
+		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->tampilProfile('pm1_user', $email);
 		$cek=array('cek'=> $cek);
 		$this->load->view('user/profile/myprofile', $cek);			
 	}
@@ -120,34 +120,14 @@ class User extends CI_Controller
 
 		if($this->form_validation->run() == FALSE)
 		{
-			$email = array('email' => $this->session->userdata('email')) ;
-			$cek = $this->User_model->tampilProfile('user', $email);
+			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->tampilProfile('pm1_user', $email);
 			$cek=array('cek'=> $cek);		
 			$this->load->view('user/profile/editprofile', $cek);			
 		}
 		else
 		{
-			$data = array(				
-				'nama' => $this->input->post('nama_lengkap'), // yang kanan nama di form
-				'nohape' => $this->input->post('no_handphone'),
-				'gender' => $this->input->post('jenis_kelamin'),
-				'tanggal_lahir' => $this->input->post('tanggal_lahir'),		
-				'alamat' => $this->input->post('alamat'),
-				'detail_alamat' => $this->input->post('detail_alamat'),
-				'provinsi' => $this->input->post('provinsi'),
-				'kota' => $this->input->post('kota'),
-				'kecamatan' => $this->input->post('kecamatan'),				
-				'kodepos' => $this->input->post('kodepos'),
-				'universitas' => $this->input->post('universitas'),
-				'jurusan' => $this->input->post('jurusan'),
-				'jenjang' => $this->input->post('jenjang'),
-				'tahun_masuk' => $this->input->post('tahun_masuk'),
-				'tahun_keluar' => $this->input->post('tahun_keluar'),
-			);	
-			$where=array(
-				'email'=>$this->input->post('email')
-			);	
-			$data=$this->User_model->update($where,$data,'user');
+			$this->User_model->updateProfile();
 			$this->session->set_flashdata('success_update', 'Berhasil Mengupdate Data');
 			redirect(base_url('myprofile'));
 		}

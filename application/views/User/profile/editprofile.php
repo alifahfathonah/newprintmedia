@@ -63,7 +63,7 @@
                             <div class="form-group">
                               <label class="label">Nama Lengkap : </label>
                               <?php 
-                                $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nama_lengkap', 'id' => 'nama_lengkap', 'value' => $info['nama']); 
+                                $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nama_lengkap', 'id' => 'nama_lengkap', 'value' => $info['pm1_user_name']); 
                                 echo form_input($data);
                                 echo form_error('nama_lengkap', '<p class="text-danger">', '</p>');
                               ?>                            
@@ -74,7 +74,7 @@
                             <div class="form-group">
                               <label class="label">No. Handphone : </label>
                               <?php 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'no_handphone', 'id' => 'no_handphone', 'value' => $info['nohape']); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'no_handphone', 'id' => 'no_handphone', 'value' => $info['pm1_user_phonenumber']); 
                               echo form_input($data);
                               echo form_error('no_handphone', '<p class="text-danger">', '</p>');
                               ?>                                                  
@@ -90,7 +90,7 @@
                               <label class="label">Jenis Kelamin : </label>
                               <?php
                                 $data = array('Laki-Laki' => 'Laki-Laki', 'Perempuan' => 'Perempuan');
-                                echo form_dropdown('jenis_kelamin', $data, set_value('jenis_kelamin'), ['class' => 'form-control', 'value' => $info['gender']]);
+                                echo form_dropdown('jenis_kelamin', $data, set_value('jenis_kelamin'), ['class' => 'form-control', 'value' => $info['pm1_user_gender']]);
                               ?>                          
                             </div>
                           </div>
@@ -102,7 +102,7 @@
                                 <div class="input-group date">
                                   <div class="input-group-addon"></div>                              
                                   <?php
-                                    $data = array('type'=>'text', 'class' => 'form-control', 'name' => 'tanggal_lahir','id'=>'tanggal_lahir','value' => $info['tanggal_lahir']);
+                                    $data = array('type'=>'text', 'class' => 'form-control', 'name' => 'tanggal_lahir','id'=>'tanggal_lahir','value' => $info['pm1_user_birthdate']);
                                     echo form_input($data);
                                   ?>     
                                 </div>                                                                  
@@ -126,7 +126,7 @@
                           <label class="col-sm-3 form-control-label">Alamat Asal</label>
                             <div class="col-sm-9">
                             <?php
-                            $data = array('class' => 'form-control', 'name' => 'alamat', 'rows' => 3, 'value'=>$info['alamat']);
+                            $data = array('class' => 'form-control', 'name' => 'alamat', 'rows' => 3, 'value'=>$info['pm1_user_address']);
                             echo form_textarea($data);
                             echo form_error('alamat', '<p class="text-danger">', '</p>');
                             ?>
@@ -140,7 +140,7 @@
                           <label class="col-sm-3 form-control-label">Detail Tempat Tinggal</label>
                             <div class="col-sm-9">
                             <?php
-                            $data = array('class' => 'form-control', 'name' => 'detail_alamat', 'rows' => 3,'value'=>$info['detail_alamat']);
+                            $data = array('class' => 'form-control', 'name' => 'detail_alamat', 'rows' => 3,'value'=>$info['pm1_user_detailaddress']);
                             echo form_textarea($data);
                             echo form_error('detail_alamat', '<p class="text-danger">', '</p>');
                             ?>
@@ -156,12 +156,12 @@
                               <label class="label">Provinsi : </label>
                               <select name="provinsi" class="form-control" id="provinsi">
                                 <?php                                                          
-                                $this->db->from('provinces');                
+                                $this->db->from('pm2_provinces');                
                                 $provinsi = $this->db->get();
                                 $data_provinsi = $provinsi->result_array();
                                 foreach($data_provinsi as $row) {
                                 ?>
-                                <option value="<?php echo $row['id']; ?>" <?php echo set_select('id', $row['id'], ($row['id'] == $info['provinsi'])? true : false ); ?>><?php echo $row['name']; ?></option>
+                                <option value="<?php echo $row['id']; ?>" <?php echo set_select('id', $row['id'], ($row['id'] == $info['pm1_user_province'])? true : false ); ?>><?php echo $row['name']; ?></option>
                                 <?php } ?>                                                                
                               </select>
                             </div>
@@ -193,7 +193,7 @@
                             <div class="form-group">
                               <label class="label">Kode Pos : </label>
                               <?php 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'kodepos', 'id' => 'kodepos', 'value' => $info['kodepos']); 
+                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'kodepos', 'id' => 'kodepos', 'value' => $info['pm1_user_poscode']); 
                               echo form_input($data);
                               echo form_error('kodepos', '<p class="text-danger">', '</p>');                       
                               ?>      
@@ -225,12 +225,12 @@
                           <div class="col-sm-9 select">
                             <select name="universitas" class="form-control" id="universitas">
                             <?php
-                              $this->db->from('universitas');
+                              $this->db->from('pm3_university');
                               $universitas = $this->db->get();
                               $data_universitas = $universitas->result_array();
                               foreach($data_universitas as $row) {
                             ?>                              
-                              <option value="<?php echo $row['universitas_id']; ?>" <?php echo set_select('nama_univ', $row['universitas_id'], ($row['universitas_id'] == $info['universitas'])? true : false ); ?>><?php echo $row['nama_univ']; ?></option>
+                              <option value="<?php echo $row['pm3_university_id']; ?>" <?php echo set_select('pm3_university_name', $row['pm3_university_id'], ($row['pm3_university_id'] == $info['pm1_user_university'])? true : false ); ?>><?php echo $row['pm3_university_name']; ?></option>
                             <?php } ?>                                                                  
                         </select>
                           </div>
@@ -242,12 +242,12 @@
                               <label class="label">Jurusan : </label>                          
                               <select name="jurusan" class="form-control" id="jurusan">
                               <?php
-                                $this->db->from('jurusan');
+                                $this->db->from('pm3_major');
                                 $jurusan = $this->db->get();
                                 $data_jurusan = $jurusan->result_array();
                                 foreach($data_jurusan as $row) {
                               ?>
-                                <option value="<?php echo $row['jurusan_id']; ?>" <?php echo set_select('jurusan', $row['jurusan'], ($row['jurusan'] == $info['jurusan'])? true : false ); ?>><?php echo $row['jurusan']; ?></option>
+                                <option value="<?php echo $row['pm3_major_id']; ?>" <?php echo set_select('pm3_major_name', $row['pm3_major_id'], ($row['pm3_major_id'] == $info['pm1_user_major'])? true : false ); ?>><?php echo $row['pm3_major_name']; ?></option>
                               <?php } ?>                                                                  
                               </select>                          
                             </div> 
@@ -258,12 +258,12 @@
                               <label class="label">Jenjang : </label>                  
                               <select name="jenjang" class="form-control" id="jurusan">
                               <?php
-                                $this->db->from('jenjang');
+                                $this->db->from('pm3_degree');
                                 $jenjang = $this->db->get();
                                 $data_jenjang = $jenjang->result_array();
                                 foreach($data_jenjang as $row) {
                               ?>
-                                <option value="<?php echo $row['jenjang_id']; ?>" <?php echo set_select('jenjang', $row['jenjang'], ($row['jenjang'] == $info['jenjang'])? true : false ); ?>><?php echo $row['jenjang']; ?></option>
+                                <option value="<?php echo $row['pm3_degree_id']; ?>" <?php echo set_select('pm3_degree_name', $row['pm3_degree_id'], ($row['pm3_degree_id'] == $info['pm1_user_degree'])? true : false ); ?>><?php echo $row['pm3_degree_name']; ?></option>
                               <?php } ?>                                                                  
                               </select>               
                               </div>
@@ -280,13 +280,13 @@
                               <label class="label">Tahun Masuk : </label>
                                 <select name="tahun_masuk" class="form-control" id="tahun_masuk">
                                 <?php
-                                  $this->db->from('tahun');
+                                  $this->db->from('pm3_year');
                                   $this->db->limit(10);
                                   $tahun = $this->db->get();                        
                                   $data_tahun = $tahun->result_array();
                                   foreach($data_tahun as $row) {
                                 ?>
-                                  <option value="<?php echo $row['tahun_id']; ?>" <?php echo set_select('tahun', $row['tahun_id'], ($row['tahun_id'] == $info['tahun_masuk'])? true : false ); ?>><?php echo $row['tahun']; ?></option>
+                                  <option value="<?php echo $row['pm3_year_id']; ?>" <?php echo set_select('pm3_year_name', $row['pm3_year_id'], ($row['pm3_year_id'] == $info['pm1_user_in'])? true : false ); ?>><?php echo $row['pm3_year_name']; ?></option>
                                 <?php } ?>
                                 </select>
                             </div>
@@ -297,12 +297,12 @@
                               <label class="label">Tahun Keluar : </label>
                                 <select name="tahun_keluar" class="form-control" id="tahun_keluar">                                  
                                 <?php
-                                  $this->db->from('tahun');
+                                  $this->db->from('pm3_year');
                                   $tahun = $this->db->get();
                                   $data_tahun = $tahun->result_array();
                                   foreach($data_tahun as $row) {
                                   ?>
-                                  <option value="<?php echo $row['tahun_id']; ?>" <?php echo set_select('tahun', $row['tahun_id'], ($row['tahun_id'] == $info['tahun_keluar'])? true : false ); ?>><?php echo $row['tahun']; ?></option>
+                                  <<option value="<?php echo $row['pm3_year_id']; ?>" <?php echo set_select('pm3_year_name', $row['pm3_year_id'], ($row['pm3_year_id'] == $info['pm1_user_out'])? true : false ); ?>><?php echo $row['pm3_year_name']; ?></option>
                                 <?php } ?>
                               </select>
                             </div>
