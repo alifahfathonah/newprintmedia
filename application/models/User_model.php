@@ -22,6 +22,7 @@ class User_model extends CI_Model{
         return $res;
     }
 
+    // Bagian Profile
     public function inputProfile()
     {
         $data = array
@@ -75,6 +76,26 @@ class User_model extends CI_Model{
         $data=$this->User_model->update($where,$data,'pm1_user');
     }
 
+    // Bagian Pemesanan
+    public function inputTemp($data,$halaman)
+    {
+        $data = array
+        (
+            'pm4_temporders_document_title' => $this->input->post('judul_dokumen'), // Kiri Nama Kolom
+            'pm4_temporders_filename' => $data, // Kanan nama form di views
+            'pm4_temporders_pagenumber' => $halaman,
+            'pm4_temporders_receiver_name' => $this->input->post('nama_penerima'),
+            'pm4_temporders_receiver_phonenumber' => $this->input->post('nohape_penerima'),
+            'pm4_temporders_receiver_address' => $this->input->post('alamat_penerima'), 
+        );
+        
+        $res = $this->db->insert('pm4_temporders', $data);
+        return $res;
+        
+    }
+
+
+    // Model Umum
     public function GetWhere($table, $data)
     {
         $res = $this->db->get_where($table, $data);

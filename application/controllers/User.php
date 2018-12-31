@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+include "vendor/autoload.php";
 class User extends CI_Controller 
 {
 	public function __construct()
@@ -27,27 +28,14 @@ class User extends CI_Controller
 		}
 	}
 
+
+	// Bagian Dashboard
 	public function dashboard()
 	{
 		$this->load->view('user/dashboard');
 	}
 
-	public function inputprofile()
-	{
-		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->GetWhere('pm1_user', $email);
-		$cek = $cek->row_array();
-		$this->load->view('user/profile/inputprofile');
-	}
-
-	public function editprofile()
-	{
-		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('pm1_user', $email);
-		$cek=array('cek'=> $cek);
-		$this->load->view('user/profile/editprofile', $cek);
-	}
-
+	// Bagian Profile Member
 	public function myprofile()
 	{	
 		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
@@ -56,17 +44,12 @@ class User extends CI_Controller
 		$this->load->view('user/profile/myprofile', $cek);			
 	}
 
-	public function history()
-	{	
-		$this->load->view('user/history');			
-	}
-
-	public function upload()
+	public function inputprofile()
 	{
-		$email = array('pm1_user_email' => $this->session->userdata('pm1_user_email')) ;
-		$cek = $this->User_model->tampilProfile('pm1_user', $email);
-		$cek=array('cek'=> $cek);
-		$this->load->view('user/upload', $cek);
+		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->GetWhere('pm1_user', $email);
+		$cek = $cek->row_array();
+		$this->load->view('user/profile/inputprofile');
 	}
 
 	public function inputdataprofile()
@@ -100,6 +83,14 @@ class User extends CI_Controller
 		
 	}
 
+	public function editprofile()
+	{
+		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->tampilProfile('pm1_user', $email);
+		$cek=array('cek'=> $cek);
+		$this->load->view('user/profile/editprofile', $cek);
+	}
+
 	public function updatedataprofile()
 	{
 		// Set Aturan
@@ -130,10 +121,64 @@ class User extends CI_Controller
 			$this->User_model->updateProfile();
 			$this->session->set_flashdata('success_update', 'Berhasil Mengupdate Data');
 			redirect(base_url('myprofile'));
-		}
-		
-		
+		}			
 	}
+
+	
+
+	public function history()
+	{	
+		$this->load->view('user/history');			
+	}
+
+	// Bagian Pemesanan
+	public function upload()
+	{
+		$email = array('pm1_user_email' => $this->session->userdata('pm1_user_email')) ;
+		$cek = $this->User_model->tampilProfile('pm1_user', $email);
+		$cek=array('cek'=> $cek);
+		$this->load->view('user/upload', $cek);
+	}
+
+	public function hitunghalaman()
+	{
+		$config['upload_path'] = "./asset/user/pemesanan";
+ 		$config['allowed_types'] = "pdf";
+ 		$config['max_size'] = "30720";
+ 		$config['remove_space'] = TRUE;
+ 		
+ 		$this->load->library('upload', $config);
+ 
+ 		if($this->upload->do_upload("inputFile"))
+ 		{
+			$data=array('upload_data' => $this->upload->data());
+			$nama=$data['upload_data']['file_name'];				 
+			$data2 = base_url('asset/user/pemesanan/').$data['upload_data']['file_name'];
+ 
+ 			$parser = new \Smalot\PdfParser\Parser();
+ 			$pdf    = $parser->parseFile($data2);
+ 	
+			$details  = $pdf->getDetails();							
+			
+			$halaman = $details['Pages'];
+			
+			$this->User_model->inputTemp($nama,$halaman);
+
+			redirect('user/upload2');
+		 }		
+
+ 		echo $this->upload->display_errors();
+	}
+
+	public function upload2()
+	{
+		$email = array('pm1_user_email' => $this->session->userdata('pm1_user_email')) ;
+		$cek = $this->User_model->tampilProfile('pm1_user', $email);
+		$cek=array('cek'=> $cek);
+		$this->load->view('user/upload2', $cek);
+	}
+
+	
 
 	public function inputdatapemesanan()
 	{
