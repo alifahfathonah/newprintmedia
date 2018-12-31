@@ -128,13 +128,16 @@ class User extends CI_Controller
 
 	public function history()
 	{	
-		$this->load->view('user/history');			
+		$email = array('pm4_orders_sender_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->tampilProfile('pm4_orders', $email);
+		$cek=array('cek'=> $cek);
+		$this->load->view('user/history', $cek);			
 	}
 
 	// Bagian Pemesanan
 	public function upload()
 	{
-		$email = array('pm1_user_email' => $this->session->userdata('pm1_user_email')) ;
+		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
 		$cek = $this->User_model->tampilProfile('pm1_user', $email);
 		$cek=array('cek'=> $cek);
 		$this->load->view('user/upload', $cek);
@@ -172,8 +175,8 @@ class User extends CI_Controller
 
 	public function upload2()
 	{
-		$email = array('pm1_user_email' => $this->session->userdata('pm1_user_email')) ;
-		$cek = $this->User_model->tampilProfile('pm1_user', $email);
+		$email = array('pm4_temporders_sender_email' => $this->session->userdata('email')) ;
+		$cek = $this->User_model->tampilTemp('pm4_temporders', $email);
 		$cek=array('cek'=> $cek);
 		$this->load->view('user/upload2', $cek);
 	}
@@ -182,26 +185,10 @@ class User extends CI_Controller
 
 	public function inputdatapemesanan()
 	{
-		$config['upload_path'] = "./asset/user/pemesanan";
-		$config['allowed_types'] = "pdf";
-		$config['max_size'] = "30720";
-		$config['remove_space'] = TRUE;
-		
-		$this->load->library('upload', $config);
-		if($this->upload->do_upload("upload_file"))
-		{
-			$data=array('upload_data' => $this->upload->data());
-
-			$datas = array(
-				'nama_file' => $data['upload_data']['file_name'],
-				'tipe_file' => $data['upload_data']['file_type'],
-				'ukuran_file' => $data['upload_data']['file_size'],
-			);
-
-			$datas = $this->User_model->Insert('pemesanan', $datas);
-			redirect('user/history');
-		}
-		echo $this->upload->display_errors();
+		$this->User_model->inputPemesanan();
+		$this->db->delete('pm4_temporders', array('pm4_temporders_sender_email' => $this->session->userdata('email') )); 
+		$this->session->set_flashdata('success_order', 'Berhasil Memesan');
+		redirect(base_url('user/history'));
 	}
 
 	// Bagian Alamat

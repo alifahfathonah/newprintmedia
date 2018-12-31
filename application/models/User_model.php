@@ -23,6 +23,13 @@ class User_model extends CI_Model{
     }
 
     // Bagian Profile
+
+    public function tampilProfile($table, $data)
+    {
+        $res = $this->db->get_where($table, $data);
+        return $res->result_array();
+    }
+
     public function inputProfile()
     {
         $data = array
@@ -84,14 +91,35 @@ class User_model extends CI_Model{
             'pm4_temporders_document_title' => $this->input->post('judul_dokumen'), // Kiri Nama Kolom
             'pm4_temporders_filename' => $data, // Kanan nama form di views
             'pm4_temporders_pagenumber' => $halaman,
+            'pm4_temporders_sender_email' => $this->input->post('email_pengirim'),
             'pm4_temporders_receiver_name' => $this->input->post('nama_penerima'),
             'pm4_temporders_receiver_phonenumber' => $this->input->post('nohape_penerima'),
             'pm4_temporders_receiver_address' => $this->input->post('alamat_penerima'), 
         );
         
         $res = $this->db->insert('pm4_temporders', $data);
-        return $res;
+        return $res;        
+    }
+
+    public function inputPemesanan()
+    {
+        $data = array
+        (
+            'pm4_orders_document_title' => $this->input->post('judul_dokumen'), // Kiri Nama Kolom
+            'pm4_orders_filename' => $this->input->post('filename'), // Kanan nama form di views
+            'pm4_orders_pagenumber' => $this->input->post('jumlah_halaman'),
+            'pm4_orders_sender_email' => $this->input->post('email_pengirim'),
+            'pm4_orders_receiver_name' => $this->input->post('nama_penerima'),
+            'pm4_orders_receiver_phonenumber' => $this->input->post('nohape_penerima'),
+            'pm4_orders_receiver_address' => $this->input->post('alamat_penerima'), 
+            'pm4_orders_paper' => $this->input->post('jenis_kertas'), 
+            'pm4_orders_color' => $this->input->post('jenis_warna'), 
+            'pm4_orders_cost' => $this->input->post('biaya'),
+            'pm4_orders_status' => $this->input->post('status'), 
+        );
         
+        $res = $this->db->insert('pm4_orders', $data);
+        return $res;        
     }
 
 
@@ -108,7 +136,7 @@ class User_model extends CI_Model{
       $this->db->update($table,$data);
     }
 
-     public function tampilProfile($table, $data)
+    public function tampilTemp($table, $data)
     {
         $res = $this->db->get_where($table, $data);
         return $res->result_array();

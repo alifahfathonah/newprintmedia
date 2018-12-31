@@ -23,6 +23,17 @@
       <!-- Akhir Side Bar-->
 
         <div class="content-inner">
+        <?php if($this->session->flashdata('success_order')):?>
+        <script src="<?php echo base_url();?>asset/user/plugin/sweetalert/dist/sweetalert2.all.min.js"></script>
+        <script>
+          swal({
+              title: "Done",
+              text: "Pesanan Anda Berhasil, Mohon Menunggu",              
+              showConfirmButton: true,
+              type: 'success'
+              });
+        </script>
+        <?php endif;?>
 
           <!-- Page Header-->
           <header class="page-header">
@@ -54,31 +65,21 @@
                         <table class="table table-striped table-hover" id="tabelriwayat">
                           <thead>
                             <tr>
-                              <th>#</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
-                              <th>Username</th>
+                              <th>No</th>
+                              <th>Judul Dokumen</th>
+                              <th>Status</th>                              
                             </tr>
                           </thead>
                           <tbody>
+                          <?php 
+                          $no=1;
+                          foreach ($cek as $info)  { ?>
                             <tr>
-                              <th scope="row">1</th>
-                              <td>Mark</td>
-                              <td>Otto</td>
-                              <td>@mdo</td>
+                              <th scope="row"><?php echo $no++; ?></th>
+                              <td><?php echo $info['pm4_orders_document_title'] ?></td>
+                              <td><?php echo $info['pm4_orders_status'] ?></td>                              
                             </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td>Jacob</td>
-                              <td>Thornton</td>
-                              <td>@fat</td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td>Larry</td>
-                              <td>the Bird</td>
-                              <td>@twitter</td>
-                            </tr>
+                          <?php } ?>                           
                           </tbody>
                         </table>
                       </div>

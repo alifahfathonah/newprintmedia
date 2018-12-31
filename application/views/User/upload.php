@@ -66,6 +66,7 @@
                   <div class="col-md-9">
                   <?php echo form_open('user/hitunghalaman', array('enctype' => 'multipart/form-data','id' => 'submit', 'class' => 'form-horizontal')); ?>
 
+                  
                   <div class="form-group row">
                       <label class="col-sm-3 form-control-label">Judul Dokumen</label>
                       <div class="col-sm-9">
@@ -88,6 +89,13 @@
                       </div>
                     </div>
 
+                    <?php foreach ($cek as $info)  { ?>
+                    <?php 
+                          $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'email_pengirim', 'id' => 'email_pengirim', 'value' => $info['pm1_user_email']); 
+                          echo form_input($data);                                                      
+                        ?>   
+                    <?php } ?>                                                         
+
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
@@ -97,7 +105,7 @@
                             echo form_input($data);                                                                              
                           ?>                        
                           <label class="checkbox-inline">
-                              <input id="inlineCheckbox1" type="checkbox" value="option1"> Samakan dengan nama Member
+                              <input id="boxnama" type="checkbox" value="0"> Samakan dengan nama Member
                           </label>
                         </div>
                       </div>
@@ -138,7 +146,7 @@
                         </div>
                       </div>                    
                     
-                  <?php echo form_close(); ?>
+                  <?php echo form_close(); ?>                  
                   
                   </div> 
                   
@@ -180,6 +188,5 @@
     } );
   </script>
 
-  
   </body>
 </html>

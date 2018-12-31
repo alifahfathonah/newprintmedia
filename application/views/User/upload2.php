@@ -57,33 +57,69 @@
             <!-- Awal Card -->
             <div class="card">
               <div class="card-header d-flex align-items-center">
-                <h3 class="h4">Rincian Pemesanan</h3>
+                <h3 class="h4">Review Pemesanan dan Estimasi Biaya</h3>
               </div>
 
               <div class="card-body">
               <div class="row">                  
                   <!-- Ini Sisi Kiri -->                
                   <div class="col-md-9">
-                  <?php echo form_open('user/hitunghalaman1', array('enctype' => 'multipart/form-data','id' => 'submit', 'class' => 'form-horizontal')); ?>
+                  <?php echo form_open('user/inputdatapemesanan', array('enctype' => 'multipart/form-data','id' => 'submit', 'class' => 'form-horizontal')); ?>
 
+                  <?php foreach ($cek as $info)  { ?>
                   <div class="form-group row">
-                      <label class="col-sm-3 form-control-label">Judul Dokumen</label>
+                      <label class="col-sm-3 form-control-label">File Name : </label>
                       <div class="col-sm-9">
                         <?php 
-                          $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'judul_dokumen', 'id' => 'judul_dokumen', 'value' => set_value('judul_dokumen')); 
+                          $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'filename', 'id' => 'filename', 'readonly' => 'true', 'value' => $info['pm4_temporders_filename']); 
                           echo form_input($data);                                                      
                         ?>    
                       </div>
                     </div>
+                    
+                    <?php 
+                      $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'judul_dokumen', 'id' => 'judul_dokumen', 'readonly' => 'true', 'value' => $info['pm4_temporders_document_title']); 
+                      echo form_input($data);                                                      
+                    ?>    
+                    <?php 
+                      $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'email_pengirim', 'id' => 'email_pengirim', 'readonly' => 'true', 'value' => $info['pm4_temporders_sender_email']); 
+                      echo form_input($data);                                                      
+                    ?>
+                    <?php 
+                      $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'nama_penerima', 'id' => 'nama_penerima', 'readonly' => 'true', 'value' => $info['pm4_temporders_receiver_name']); 
+                      echo form_input($data);                                                      
+                    ?>
+                    <?php 
+                      $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'nohape_penerima', 'id' => 'nohape_penerima', 'readonly' => 'true', 'value' => $info['pm4_temporders_receiver_phonenumber']); 
+                      echo form_input($data);                                                      
+                    ?>
+                    <?php 
+                      $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'alamat_penerima', 'id' => 'alamat_penerima', 'readonly' => 'true', 'value' => $info['pm4_temporders_receiver_address']); 
+                      echo form_input($data);                                                      
+                    ?>
+                    <?php 
+                      $data = array('type' => 'hidden', 'class' => 'form-control', 'name' => 'status', 'id' => 'status', 'readonly' => 'true', 'value' => 'On Process'); 
+                      echo form_input($data);                                                      
+                    ?>        
 
-                    <div class="form-group row">
-                      <label class="col-sm-3 form-control-label">File</label>
-                      <div class="col-sm-9">
-                        <div class="custom-file mb-3">
-                        <?php 
-                          $data = array('type' => 'file', 'class' => 'form-control', 'name' => 'inputFile', 'id' => 'inputFile', 'value' => set_value('inputFile')); 
-                          echo form_input($data);                          
-                        ?>    
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="label">Jenis Kertas :</label>                          
+                            <?php
+                                $data = array('0' => 'Pilih Kertas','A4 HVS - 80gr' => 'A4 HVS - 80gr', 'F4 HVS - 80gr' => 'F4 HVS - 80gr');
+                                echo form_dropdown('jenis_kertas', $data, set_value('jenis_kertas'), ['class' => 'form-control']);
+                            ?>                           
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="label">Jenis Warna :</label>                    
+                            <?php
+                                $data = array('0' => 'Pilih Warna', 'Hitam - Putih' => 'Hitam - Putih', 'Berwarna' => 'Berwarna');
+                                echo form_dropdown('jenis_warna', $data, set_value('jenis_warna'), ['class' => 'form-control', 'id'=>'jenis_warna']);
+                            ?>   
                         </div>
                       </div>
                     </div>
@@ -91,35 +127,25 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="label">Nama Penerima :</label>                          
+                          <label class="label">Jumlah Halaman :</label>                          
                           <?php 
-                            $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nama_penerima', 'id' => 'nama_penerima', 'value' => set_value('nama_penerima')); 
+                            $data = array('type' => 'number', 'class' => 'form-control', 'name' => 'jumlah_halaman', 'id' => 'jumlah_halaman', 'value' => $info['pm4_temporders_pagenumber'], 'readonly'=>'true'); 
                             echo form_input($data);                                                      
-                          ?>                         
+                          ?>                           
                         </div>
                       </div>
 
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label class="label">No.Handphone Penerima :</label>                    
+                          <label class="label">Estimasi Biaya :</label>                    
                             <?php 
-                              $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nohape_penerima', 'id' => 'nohape_penerima', 'value' => set_value('nohape_penerima')); 
+                              $data = array('type' => 'number', 'class' => 'form-control', 'name' => 'biaya', 'id' => 'biaya', 'readonly'=>'true', 'value' => set_value('biaya')); 
                               echo form_input($data);                                                      
-                            ?>  
+                            ?> 
+                            <small>*Tidak termasuk biaya pengantaran</small>  
                         </div>
                       </div>
-                    </div> 
-
-                    <div class="form-group row">
-                          <label class="col-sm-3 form-control-label">Alamat Pengiriman : </label>
-                            <div class="col-sm-9">
-                            <?php
-                            $data = array('class' => 'form-control', 'name' => 'alamat_penerima', 'rows' => 4, 'value' => set_value('alamat_penerima'));
-                            echo form_textarea($data);                            
-                            ?>
-                            <small>Misal: Perumahan Elok Permai Blok BC, RT/RW 03/09</small>
-                          </div>
-                          </div>                                           
+                    </div>
 
                     <div class="row">
                         <div class="col md-6">
@@ -130,11 +156,12 @@
 
                         <div class="col md-6">
                           <div class="form-group">
-                            <?php echo form_submit('submit', 'Next', array('class' => 'btn btn-primary form-control')); ?>
+                            <?php echo form_submit('submit', 'Pesan Sekarang', array('class' => 'btn btn-primary form-control')); ?>
                           </div>                        
                         </div>
-                      </div>                    
+                      </div>                                            
                     
+                  <?php } ?>  
                   <?php echo form_close(); ?>
                   
                   </div> 
@@ -170,6 +197,29 @@
   <!-- All Java Scripts --> 
     <?php $this->load->view('user/include/user_javascript'); ?>
   <!-- All Java Script -->
+
+  <script>
+  $(document).ready(function(){ 
+    $("#jenis_warna").change(function(){ // Ketika user mengganti jenis warnna            
+      
+      if($("#jenis_warna").val() == "Hitam - Putih")
+      {
+             
+        return $("#biaya").val(700 * $("#jumlah_halaman").val());
+      }
+
+      else if($("#jenis_warna").val() == "Berwarna")
+      {
+        return $("#biaya").val(1000 * $("#jumlah_halaman").val());
+      }
+
+      else
+      {
+        return $("#biaya").val("");
+      }
+    });
+  });
+  </script>
     
   </body>
 </html>
