@@ -86,6 +86,15 @@ class Developer extends CI_Controller {
 		$this->load->view('Developer/Data_Univ',$data);
 	}
 
+	public function Tampil_Pemesanan()
+	{
+		$data=$this->Developer_model->tampiluniv('pm4_orders');
+		$data=array(
+			'data'=> $data
+		);
+		$this->load->view('Developer/Pemesanan',$data);
+	}
+
 	public function Tampil_Jurusan()
 	{
 		$data=$this->Developer_model->tampiluniv('pm3_major');
@@ -153,5 +162,20 @@ class Developer extends CI_Controller {
 			$this->load->view('Developer/detail_user', $cek);
 		
 		}
+
+	public function Detail_Pemesanan($id)
+		{
+			$id = array('pm4_orders_id' => $id) ;
+			$cek = $this->Developer_model->detailuser('pm4_orders', $id);
+			$cek=array('cek'=> $cek);
+			$this->load->view('Developer/Detail_Pesanan', $cek);
+		
+		}
+
+	public function Do_Download($namefile)
+	{
+		$newfile='./asset/user/pemesanan/'.$namefile;
+		force_download($newfile,NULL);
+	}
 }
 ?>

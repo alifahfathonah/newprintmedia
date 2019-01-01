@@ -25,12 +25,12 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="<?php echo base_url('Developer');?>" class="nav-link">
+              <a href="<?php echo base_url('Developer');?>" class="nav-link">
                 <i class="nav-icon fa fa-dashboard"></i>
                 <p>
                     Dashboard
                 </p>
-                </a>
+              </a>
           </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -77,6 +77,14 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+              <a href="<?php echo base_url('Developer/Tampil_Pemesanan');?>" class="nav-link">
+                <i class="nav-icon fa fa-envelope-o"></i>
+                <p>
+                    Pemesanan
+                </p>
+              </a>
           </li>
         </ul>
       </nav>
