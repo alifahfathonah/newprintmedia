@@ -58,10 +58,10 @@
                 <tbody>
                 <?php foreach ($data as $info) {?>
                 <tr>
-                  <td><?php echo $info['jurusan_id'];?></td>
-                  <td><?php echo $info['jurusan'];?></td>
+                  <td><?php echo $info['pm3_major_id'];?></td>
+                  <td><?php echo $info['pm3_major_name'];?></td>
                   <td>
-                  <a  class="fa fa-times remove" id="remove" data-id="<?php echo $info['jurusan_id']; ?>" href="javascript:void(0)" ></a>
+                  <a  class="fa fa-times remove" id="remove" data-id="<?php echo $info['pm3_major_id']; ?>" href="javascript:void(0)" ></a>
                   </td>
                 </tr>
                 <?php } ?>
@@ -225,7 +225,7 @@ function save()
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Input Universitas</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Input Jurusan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -233,7 +233,7 @@ function save()
       <div class="modal-body">
         <form role="form" id="form" method="post">
            <div class="form-group">
-             <label for="inputJurusan">Nama Universitas</label>
+             <label for="inputJurusan">Nama Jurusan</label>
              <?php $data1 = array('type' => 'text', 'id' => 'jurusan', 'name' => 'jurusan', 'class' => 'form-control mb-2 mr-sm-2', 'value' => set_value('jurusan'), 'required' => 'true', 'oninvalid' => 'this.setCustomValidity('."'Tidak Boleh Kosong'".')', 'oninput' => 'setCustomValidity('."''".')', 'autofocus' => 'true'); 
                           echo form_input($data1); 
               ?>

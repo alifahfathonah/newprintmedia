@@ -86,13 +86,13 @@
                 <?php foreach ($data as $info) {?>
                 <tr>
                   <td><?php echo $no;?></td>
-                  <td><?php echo $info['nama'];?></td>
-                  <td><?php echo $info['gender'];?></td>
-                  <td><?php echo $info['nohape'];?></td>
-                  <td><?php echo $info['email'];?></td>
+                  <td><?php echo $info['pm1_user_name'];?></td>
+                  <td><?php echo $info['pm1_user_gender'];?></td>
+                  <td><?php echo $info['pm1_user_phonenumber'];?></td>
+                  <td><?php echo $info['pm1_user_email'];?></td>
                   <td>
-                    <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_User/<?php echo $info['email'];?>" title="Detail"></a>
-                    <a  class="fa fa-times" onClick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url();?>Developer/Hapus_User/<?php echo $info['email'];?>" title="Delete"></a>
+                    <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_User/<?php echo $info['pm1_user_email'];?>" title="Detail"></a>
+                    <a  class="fa fa-times" onClick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url();?>Developer/Hapus_User/<?php echo $info['pm1_user_email'];?>" title="Delete"></a>
                   </td>
                 </tr>
                 <?php } ?>

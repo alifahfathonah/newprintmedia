@@ -59,11 +59,11 @@
                 <tbody>
                 <?php foreach ($data as $info) {?>
                 <tr>
-                  <td><?php echo $info['universitas_id'];?></td>
-                  <td><?php echo $info['nama_univ'];?></td>
-                  <td><?php echo $info['kota'];?></td>
+                  <td><?php echo $info['pm3_university_id'];?></td>
+                  <td><?php echo $info['pm3_university_name'];?></td>
+                  <td><?php echo $info['pm3_university_city'];?></td>
                   <td>
-                   <a  class="fa fa-times remove" id="remove" data-id="<?php echo $info['universitas_id']; ?>" href="javascript:void(0)" ></a>
+                   <a  class="fa fa-times remove" id="remove" data-id="<?php echo $info['pm3_university_id']; ?>" href="javascript:void(0)" ></a>
                   </td>
                 </tr>
                 <?php } ?>

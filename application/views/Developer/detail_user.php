@@ -74,45 +74,45 @@
                 <tbody>
                   <tr>
                     <th scope="row">Nama</th>
-                    <td><?php echo $info['nama'];?></td>
+                    <td><?php echo $info['pm1_user_name'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">No.Handphone</th>
-                    <td><?php echo $info['nohape'];?></td>
+                    <td><?php echo $info['pm1_user_phonenumber'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Gender</th>
-                    <td><?php echo $info['gender'];?></td>
+                    <td><?php echo $info['pm1_user_gender'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Tanggal Lahir</th>
-                    <td><?php echo $info['tanggal_lahir'];?></td>
+                    <td><?php echo $info['pm1_user_birthdate'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Email</th>
-                    <td><?php echo $info['email'];?></td>
+                    <td><?php echo $info['pm1_user_email'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Alamat</th>
-                    <td><?php echo $info['alamat'];?></td>
+                    <td><?php echo $info['pm1_user_address'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Detail Alamat</th>
-                    <td><?php echo $info['detail_alamat'];?></td>
+                    <td><?php echo $info['pm1_user_detailaddress'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Provinsi</th>
                     <td>
                     <?php                    
-                      $data = array('id' => $info['provinsi']) ;
-                      $provinsi = $this->db->get_where('provinces', $data);
+                      $data = array('id' => $info['pm1_user_province']) ;
+                      $provinsi = $this->db->get_where('pm2_provinces', $data);
                       $data_provinsi = $provinsi->result_array(); 
                       echo $data_provinsi[0]['name'];                          
                     ?>
@@ -123,8 +123,8 @@
                     <th scope="row">Kota</th>
                     <td>
                     <?php                    
-                      $data = array('id' => $info['kota']) ;
-                      $kota = $this->db->get_where('regencies', $data);
+                      $data = array('id' => $info['pm1_user_regency']) ;
+                      $kota = $this->db->get_where('pm2_regencies', $data);
                       $data_kota = $kota->result_array(); 
                       echo $data_kota[0]['name'];                          
                     ?>
@@ -135,8 +135,8 @@
                     <th scope="row">Kecamatan</th>
                     <td>
                     <?php                    
-                      $data = array('id' => $info['kecamatan']) ;
-                      $kecamatan = $this->db->get_where('districts', $data);
+                      $data = array('id' => $info['pm1_user_district']) ;
+                      $kecamatan = $this->db->get_where('pm2_districts', $data);
                       $data_kecamatan = $kecamatan->result_array(); 
                       echo $data_kecamatan[0]['name'];                          
                     ?>
@@ -145,17 +145,17 @@
                   </tr>
                   <tr>
                     <th scope="row">Kode Pos</th>
-                    <td><?php echo $info['kodepos'];?></td>
+                    <td><?php echo $info['pm1_user_poscode'];?></td>
                     <td></td>
                   </tr>
                   <tr>
                     <th scope="row">Universitas</th>
                     <td>
                     <?php                    
-                      $data = array('universitas_id' => $info['universitas']) ;
-                      $univ = $this->db->get_where('universitas', $data);
+                      $data = array('pm3_university_id' => $info['pm1_user_university']) ;
+                      $univ = $this->db->get_where('pm3_university', $data);
                       $data_univ = $univ->result_array(); 
-                      echo $data_univ[0]['nama_univ'];                          
+                      echo $data_univ[0]['pm3_university_name'];                          
                     ?>
                     </td>
                     <td></td>
@@ -164,10 +164,10 @@
                     <th scope="row">Jurusan</th>
                     <td>
                     <?php                    
-                      $data = array('jurusan_id' => $info['jurusan']) ;
-                      $jurusan = $this->db->get_where('jurusan', $data);
+                      $data = array('pm3_major_id' => $info['pm1_user_major']) ;
+                      $jurusan = $this->db->get_where('pm3_major', $data);
                       $data_jurusan = $jurusan->result_array(); 
-                      echo $data_jurusan[0]['jurusan'];                          
+                      echo $data_jurusan[0]['pm3_major_name'];                          
                     ?>
                     </td>
                     <td></td>
@@ -176,10 +176,10 @@
                     <th scope="row">Jenjang</th>
                     <td>
                     <?php                    
-                      $data = array('jenjang_id' => $info['jenjang']) ;
-                      $jenjang = $this->db->get_where('jenjang', $data);
+                      $data = array('pm3_degree_id' => $info['pm1_user_degree']) ;
+                      $jenjang = $this->db->get_where('pm3_degree', $data);
                       $data_jenjang = $jenjang->result_array(); 
-                      echo $data_jenjang[0]['jenjang'];                          
+                      echo $data_jenjang[0]['pm3_degree_name'];                          
                     ?>
                     </td>
                     <td></td>
@@ -188,10 +188,10 @@
                     <th scope="row">Tahun Masuk</th>
                     <td>
                     <?php                    
-                      $data = array('tahun_id' => $info['tahun_masuk']) ;
+                      $data = array('pm3_year_id' => $info['pm1_user_in']) ;
                       $thn_masuk = $this->db->get_where('tahun', $data);
                       $tahun_masuk = $thn_masuk->result_array(); 
-                      echo $tahun_masuk[0]['tahun'];                          
+                      echo $tahun_masuk[0]['pm3_year_name'];                          
                     ?>
                     </td>
                     <td></td>
@@ -200,10 +200,10 @@
                     <th scope="row">Tahun Keluar</th>
                     <td>
                     <?php                    
-                      $data = array('tahun_id' => $info['tahun_keluar']) ;
+                      $data = array('pm3_year_id' => $info['pm1_user_out']) ;
                       $thn_keluar = $this->db->get_where('tahun', $data);
                       $tahun_keluar = $thn_keluar->result_array(); 
-                      echo $tahun_keluar[0]['tahun'];                       
+                      echo $tahun_keluar[0]['pm3_year_name'];                       
                     ?>
                     </td>
                     <td></td>

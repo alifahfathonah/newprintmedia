@@ -43,7 +43,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3><?php echo $this->db->get('universitas')->num_rows();?></h3>
+                <h3><?php echo $this->db->get('pm3_university')->num_rows();?></h3>
 
                 <p>Universitas</p>
               </div>
@@ -58,7 +58,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><?php echo $this->db->get('jurusan')->num_rows();?></h3>
+                <h3><?php echo $this->db->get('pm3_major')->num_rows();?></h3>
 
                 <p>Jurusan</p>
               </div>
@@ -73,7 +73,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3><?php echo $this->db->get('user')->num_rows();?></h3>
+                <h3><?php echo $this->db->get('pm1_user')->num_rows();?></h3>
                 <p>User Registrations</p>
               </div>
               <div class="icon">
@@ -109,11 +109,11 @@
                 <?php foreach ($data as $info) {?>
                 <tr>
                   <td><?php echo $no++;?></td>
-                  <td><?php echo $info['email'];?></td>
-                  <td><?php echo $info['alamat_ip'];?></td>
-                  <td><?php echo $info['browser'];?></td>
-                  <td><?php echo $info['waktu_masuk'];?></td>
-                  <td><?php echo $info['keterangan'];?></td>
+                  <td><?php echo $info['pm0_loginregister_email'];?></td>
+                  <td><?php echo $info['pm0_loginregister_ip'];?></td>
+                  <td><?php echo $info['pm0_loginregister_platform'];?></td>
+                  <td><?php echo $info['pm0_loginregister_time'];?></td>
+                  <td><?php echo $info['pm0_loginregister_information'];?></td>
                 </tr>
                 <?php } ?>
                 </tbody>

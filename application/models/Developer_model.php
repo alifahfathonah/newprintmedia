@@ -18,19 +18,22 @@ class Developer_model extends CI_Model {
           return $query->result_array();
           
     }
+
     public function tampiluser($table)
     {
         $this->db->from($table);
-        $this->db->order_by('id','DESC');
+        $this->db->order_by('pm0_loginregister_id','DESC');
         $res=$this->db->get();
         return $res->result_array();
     }
+
     public function hapus($table,$id)
     {
         $this->db->where($id);
 		$res=$this->db->delete($table);
 		return $res;
     }
+    
     public function detailuser($table,$where)
     {
         $res = $this->db->get_where($table, $where);
