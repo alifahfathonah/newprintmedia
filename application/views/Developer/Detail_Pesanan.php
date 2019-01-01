@@ -78,7 +78,7 @@
                     <td></td>
                   </tr>
                   <tr>
-                    <th scope="row">No.Handphone</th>
+                    <th scope="row">Dokumen Title</th>
                     <td><?php echo $info['pm4_orders_document_title'];?></td>
                     <td></td>
                   </tr>
