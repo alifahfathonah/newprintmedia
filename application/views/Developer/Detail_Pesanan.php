@@ -119,6 +119,7 @@
               </table>
               <div class="card-footer">
                   <a href="<?php echo base_url();?>Developer/Do_Download/<?php echo $info['pm4_orders_filename'];?>" class="btn btn-primary">Download File</a>
+                  <a href="<?php echo base_url();?>Developer/Tampil_Pemesanan" class="btn btn-primary">Back</a>
                 </div>
             </div>
             <!-- /.card-body -->
