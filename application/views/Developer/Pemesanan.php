@@ -73,8 +73,8 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Email</th>
-                  <th>Document Title</th>
+                  <th>No</th>
+                  <th>Pemesan</th>
                   <th>Judul Dokumen</th>
                   <th>Type Colour</th>
                   <th>Status</th>
