@@ -89,10 +89,30 @@
                   <td><?php echo $info['pm4_orders_sender_email'];?></td>
                   <td><?php echo $info['pm4_orders_document_title'];?></td>
                   <td><?php echo $info['pm4_orders_color'];?></td>
-                  <td><?php echo $info['pm4_orders_status'];?></td>
                   <td>
-                    <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_Pemesanan/<?php echo $info['pm4_orders_id'];?>" title="Detail"></a>
-                    <a  class="fa fa-times" onClick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url();?>Developer/Hapus_User/<?php echo $info['pm4_orders_id'];?>" title="Delete"></a>
+                    <?php  if ($info['pm4_orders_status']=='1') {?>
+                        Pesanan Diterima
+                    <?php } if ($info['pm4_orders_status']=='2') { ?>
+                        Pesanan Dalam Proses
+                    <?php } if ($info['pm4_orders_status']=='3') { ?>
+                        Pesanan Dalam Pengiriman
+                    <?php } if ($info['pm4_orders_status']=='4') { ?>
+                        Pesanan Telah Diterima
+                    <?php } if ($info['pm4_orders_status']=='5') { ?>
+                        Pesanan Gagal
+                    <?php } ?>
+                  </td>
+                  <td>
+                    <?php  if ($info['pm4_orders_status']=='1') {?>
+                        <a  class="fa fa-check" href="<?php echo base_url();?>Developer/Ubah_onproses/<?php echo $info['pm4_orders_id'];?>" title="Terima"></a>
+                    <?php } if ($info['pm4_orders_status']=='2') {?>
+                        <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_Pemesanan/<?php echo $info['pm4_orders_id'];?>" title="Detail"></a>
+                        <a  class="fa fa-plane" href="<?php echo base_url();?>Developer/Ubah_send/<?php echo $info['pm4_orders_id'];?>" title="Kirim"></a>
+                    <?php } if ($info['pm4_orders_status']=='3') {?>
+                        <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_Pemesanan/<?php echo $info['pm4_orders_id'];?>" title="Detail"></a>
+                    <?php } if ($info['pm4_orders_status']=='5') { ?>
+                        <a  class="fa fa-times" onClick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url();?>Developer/Hapus_User/<?php echo $info['pm4_orders_id'];?>" title="Delete"></a>
+                    <?php } ?>
                   </td>
                 </tr>
                 <?php } ?>

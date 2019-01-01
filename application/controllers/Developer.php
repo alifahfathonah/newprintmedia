@@ -172,6 +172,21 @@ class Developer extends CI_Controller {
 		
 		}
 
+	public function Ubah_onproses($id)
+	{
+		$id = array('pm4_orders_id' => $id) ;
+		$isi=array('pm4_orders_status'=>'2');
+		$cek = $this->Developer_model->updateStatus('pm4_orders',$id, $isi);
+		redirect(base_url('Developer/Tampil_Pemesanan'));
+	}
+
+	public function Ubah_send($id)
+	{
+		$id = array('pm4_orders_id' => $id) ;
+		$isi=array('pm4_orders_status'=>'3');
+		$cek = $this->Developer_model->updateStatus('pm4_orders',$id, $isi);
+		redirect(base_url('Developer/Tampil_Pemesanan'));
+	}
 	public function Do_Download($namefile)
 	{
 		$newfile='./asset/user/pemesanan/'.$namefile;
