@@ -189,7 +189,7 @@
                     <td>
                     <?php                    
                       $data = array('pm3_year_id' => $info['pm1_user_in']) ;
-                      $thn_masuk = $this->db->get_where('tahun', $data);
+                      $thn_masuk = $this->db->get_where('pm3_year', $data);
                       $tahun_masuk = $thn_masuk->result_array(); 
                       echo $tahun_masuk[0]['pm3_year_name'];                          
                     ?>
@@ -201,7 +201,7 @@
                     <td>
                     <?php                    
                       $data = array('pm3_year_id' => $info['pm1_user_out']) ;
-                      $thn_keluar = $this->db->get_where('tahun', $data);
+                      $thn_keluar = $this->db->get_where('pm3_year', $data);
                       $tahun_keluar = $thn_keluar->result_array(); 
                       echo $tahun_keluar[0]['pm3_year_name'];                       
                     ?>

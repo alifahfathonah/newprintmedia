@@ -91,7 +91,7 @@
                   <td><?php echo $info['pm1_user_phonenumber'];?></td>
                   <td><?php echo $info['pm1_user_email'];?></td>
                   <td>
-                    <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_User/<?php echo $info['pm1_user_email'];?>" title="Detail"></a>
+                    <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_User/<?php echo $info['pm1_user_id'];?>" title="Detail"></a>
                     <a  class="fa fa-times" onClick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url();?>Developer/Hapus_User/<?php echo $info['pm1_user_email'];?>" title="Delete"></a>
                   </td>
                 </tr>

@@ -145,10 +145,10 @@ class Developer extends CI_Controller {
 			}
 		}
 
-	public function Detail_User($email)
+	public function Detail_User($id)
 		{
-			$email = array('pm1_user_email' => $email) ;
-			$cek = $this->Developer_model->detailuser('pm1_user', $email);
+			$id = array('pm1_user_id' => $id) ;
+			$cek = $this->Developer_model->detailuser('pm1_user', $id);
 			$cek=array('cek'=> $cek);
 			$this->load->view('Developer/detail_user', $cek);
 		
