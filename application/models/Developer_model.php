@@ -39,4 +39,10 @@ class Developer_model extends CI_Model {
         $res = $this->db->get_where($table, $where);
         return $res->result_array();
     }
+
+    public function updateStatus($table,$id, $isi)
+    {
+        $this->db->where($id);
+        $this->db->update($table,$isi);
+    }
 }

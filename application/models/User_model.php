@@ -115,7 +115,7 @@ class User_model extends CI_Model{
             'pm4_orders_paper' => $this->input->post('jenis_kertas'), 
             'pm4_orders_color' => $this->input->post('jenis_warna'), 
             'pm4_orders_cost' => $this->input->post('biaya'),
-            'pm4_orders_status' => $this->input->post('status'), 
+            'pm4_orders_status' => 1 
         );
         
         $res = $this->db->insert('pm4_orders', $data);

@@ -67,7 +67,7 @@
                             <tr>
                               <th>No</th>
                               <th>Judul Dokumen</th>
-                              <th>Status</th>                              
+                              <th width="300">Status</th>                              
                             </tr>
                           </thead>
                           <tbody>
@@ -77,7 +77,19 @@
                             <tr>
                               <th scope="row"><?php echo $no++; ?></th>
                               <td><?php echo $info['pm4_orders_document_title'] ?></td>
-                              <td><?php echo $info['pm4_orders_status'] ?></td>                              
+                              <td>
+                                <?php  if ($info['pm4_orders_status']=='1') {?>
+                                    Pesanan Diterima
+                                <?php } if ($info['pm4_orders_status']=='2') { ?>
+                                    Pesanan Dalam Proses
+                                <?php } if ($info['pm4_orders_status']=='3') { ?>
+                                    Pesanan Dalam Pengiriman
+                                <?php } if ($info['pm4_orders_status']=='4') { ?>
+                                    Pesanan Telah Diterima
+                                <?php } if ($info['pm4_orders_status']=='5') { ?>
+                                    Pesanan Gagal
+                                <?php } ?>
+                              </td>                              
                             </tr>
                           <?php } ?>                           
                           </tbody>
