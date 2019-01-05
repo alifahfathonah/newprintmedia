@@ -15,6 +15,6 @@ class Home extends CI_Controller {
 
 	public function test()
 	{
-		
+		echo $_SERVER['HTTP_HOST'] . "<br>" . getHostByName(getHostName());;
 	}
 }

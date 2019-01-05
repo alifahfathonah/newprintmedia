@@ -24,7 +24,7 @@
         <div class="jumbotron text-white">
             <h1 class="display-4">Akun Anda Aktif!</h1>
             <p class="lead">
-                Terima kasih <b><?php echo $data[0]['pm1_auth_email']; ?></b> telah melakukan aktivasi.<br> Silahkan <a href="<?php echo base_url('login'); ?>" class="text-dark">LOGIN!</a>
+                Terima kasih <b><?php echo $view[0]['pm1_auth_email']; ?></b> telah melakukan aktivasi.<br> Silahkan <a href="<?php echo base_url('login'); ?>" class="text-dark">LOGIN!</a>
             </p>
         </div>
     </div>

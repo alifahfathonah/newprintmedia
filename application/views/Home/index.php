@@ -181,33 +181,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-<script src="<?php echo base_url(''); ?>asset/home/js/slick.min.js"></script>
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 <script async='async' src='https://cdn.rawgit.com/aFarkas/lazysizes/gh-pages/lazysizes.min.js' type='text/javascript'></script>
-<script>
-for(var imgEl=document.getElementsByTagName("img"),i=0;i<imgEl.length;i++)imgEl[i].getAttribute("src")&&(imgEl[i].setAttribute("data-src",imgEl[i].getAttribute("src")),imgEl[i].className+=" lazyload",imgEl[i].setAttribute("src","data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="));
-$(document).ready(function() {
-    $('iframe[src*="youtube.com"]').wrap('<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:0 auto;width:100%"></div>').css({
-        "position": "absolute",
-        "top": "0",
-        "left": "0",
-        "width": "100%",
-        "height": "100%",
-        "border": "0"
-    }).addClass("lazyload").each(function() {
-        $(this).attr("data-src", $(this).attr("src"));
-        $(this).removeAttr("src", "")
-    });
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.your-class').slick({
-        autoplay: true,
-        autoplaySpeed: 3000,
-    });
-});
-</script>
-
 </body>
 </html>

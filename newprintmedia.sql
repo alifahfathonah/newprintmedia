@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2018 at 05:33 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Generation Time: Jan 05, 2019 at 06:07 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,7 +68,29 @@ INSERT INTO `pm0_loginregister` (`pm0_loginregister_id`, `pm0_loginregister_emai
 (22, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-14 03:27:45', 'Login', 'u5j1ipb4g565m3vn9qeqvq0p0mrig06g'),
 (23, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-30 21:18:02', 'Login', 'a6qjjpgv87f19a775olgooluimn7ob7d'),
 (24, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-30 23:50:55', 'Login', '3cf5cdltmf1hvthl1gft5osjjrakqio8'),
-(25, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-31 03:13:29', 'Login', '3dm8qt3tvaatujqe4qkfdh38mvhharqm');
+(25, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-31 03:13:29', 'Login', '3dm8qt3tvaatujqe4qkfdh38mvhharqm'),
+(26, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 02:16:43', 'Login', 'dv4ff9g328doisviq7k9u0r6bkvkibvu'),
+(27, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 01:09:58', 'Login', 'b5celrpgsvq47t72qr2mq8qtflbvl83d'),
+(28, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 01:13:15', 'Login', 'c8pja9uf2al19mrj8vb6u7138g006bmk'),
+(29, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 02:41:01', 'Register', '2f7vk21lktqfcjci27n5p2ibv2ssu8of'),
+(30, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 04:18:55', 'Register', 'a380ag9dcag3sebeitonflp8em5srqrc'),
+(31, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 18:40:00', 'Register', 'ob2qn3e4g633vn9tcqh8c156pj3sh1ol'),
+(32, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 19:48:59', 'Register', '3bo8fs4j356n3bp11cckqqmfcgv39ies'),
+(33, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 19:52:55', 'Register', '3bo8fs4j356n3bp11cckqqmfcgv39ies'),
+(34, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 19:55:05', 'Register', 'o82f6k9lhvtqdj3qtooi44ikn4rj9s45'),
+(35, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 20:11:14', 'Register', 'ukqtl523vtl1t1c773792v2sahpevjln'),
+(36, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 20:22:44', 'Login', 'ni8c8290edan4f37sb36rca6l7cldaqh'),
+(37, 'developer622224019@printmedia.co.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 21:27:04', 'Login', '7vcn8bdg6597t2141c0ioq63k4qb55to'),
+(38, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:14:41', 'Register', '06a86n73ol9hbh0tn9hkktkbbe8ahj7g'),
+(39, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:21:08', 'Register', 'p7akhsneacddnch1kh4sgdjd73029psn'),
+(40, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:23:19', 'Register', 'p7akhsneacddnch1kh4sgdjd73029psn'),
+(41, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:28:23', 'Register', 'gdp0v7rqjmc55tjrn7nnfbcuo5vkpqml'),
+(42, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:28:54', 'Register', 'gdp0v7rqjmc55tjrn7nnfbcuo5vkpqml'),
+(43, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:29:19', 'Register', 'gdp0v7rqjmc55tjrn7nnfbcuo5vkpqml'),
+(44, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:32:37', 'Register', 'ljoni1nss2vgdgmc4rpdv5p5ckl44jcn'),
+(45, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:36:55', 'Register', 'ljoni1nss2vgdgmc4rpdv5p5ckl44jcn'),
+(46, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:38:08', 'Register', '44i68fpg9srb2l89hs4ceauvkg5jhl4a'),
+(47, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:38:52', 'Register', '44i68fpg9srb2l89hs4ceauvkg5jhl4a');
 
 -- --------------------------------------------------------
 
@@ -78,20 +100,24 @@ INSERT INTO `pm0_loginregister` (`pm0_loginregister_id`, `pm0_loginregister_emai
 
 CREATE TABLE `pm1_auth` (
   `pm1_auth_id` int(11) NOT NULL,
+  `pm1_auth_code` varchar(32) NOT NULL,
   `pm1_auth_email` varchar(50) NOT NULL,
   `pm1_auth_password` varchar(255) NOT NULL,
-  `pm1_auth_level` varchar(10) NOT NULL,
-  `pm1_auth_token` varchar(50) NOT NULL,
-  `pm1_auth_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `pm1_auth_status` varchar(15) NOT NULL
+  `pm1_auth_level` int(5) NOT NULL,
+  `pm1_auth_token` varchar(256) NOT NULL,
+  `pm1_auth_date` date NOT NULL,
+  `pm1_auth_time` time NOT NULL,
+  `pm1_auth_status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pm1_auth`
 --
 
-INSERT INTO `pm1_auth` (`pm1_auth_id`, `pm1_auth_email`, `pm1_auth_password`, `pm1_auth_level`, `pm1_auth_token`, `pm1_auth_time`, `pm1_auth_status`) VALUES
-(2, '111201609358@mhs.dinus.ac.id', '$2y$10$0Ewx4QkxkNR58Ljza4gw1ezBWf.wdgXZIlPD9J6FlSp/9xGufEKxO', 'Member', 'fa593687948fba232deed033472d11cb', '2018-12-08 04:05:16', 'Aktif');
+INSERT INTO `pm1_auth` (`pm1_auth_id`, `pm1_auth_code`, `pm1_auth_email`, `pm1_auth_password`, `pm1_auth_level`, `pm1_auth_token`, `pm1_auth_date`, `pm1_auth_time`, `pm1_auth_status`) VALUES
+(22, 'eca982bd6df190e8536fab70830fe197', 'developer622224019@printmedia.co.id', '$2y$10$oAWT30pEixbOOTpKPZcVD.ZqZbiUlJ2uBPeoY7C6TnS/g.PwWDhiS', 1, 'd41d8cd98f00b204e9800998ecf8427ee3sl6vrw5VWRxtjp0OSKfaFhL8inMc7gdGIPTDBAk4XNoby1CHqEQJY29mUZzu', '2019-01-05', '16:26:57', 2),
+(23, 'ed51d495e5640ef0e3e434d7dcbea226', 'developer1888588307@printmedia.co.id', '$2y$10$Y8LDpx6Pbxhc8eU21RcOY.x6cTnYHnlamIz0rwz.bLHQr4Pm6DFkG', 1, 'd41d8cd98f00b204e9800998ecf8427eD8mMtBVg5YvQRxPSZGadI0zp7TNrF6nuL1wJUObhifC4ljEk9AWHcoy2s3eqKX', '2019-01-05', '16:28:52', 2),
+(33, '7c7e1797988849d045e4e087ab49c1bc', '111201609357@mhs.dinus.ac.id', '$2y$10$wvilkV5GHtTlSKvA4ZAQ5e0lKg/3Whvk8XrxX76X/Yp8ujWwc5R12', 2, '70eac08fb16df48e3c2d73ccca2dd5c2qHjsynmu5CD4M73Pd80bLkrpElIBwhVYgfUFoc6WNeZz2iAtKGvJXSQxa19RTO', '2019-01-05', '23:38:49', 2);
 
 -- --------------------------------------------------------
 
@@ -103,7 +129,7 @@ CREATE TABLE `pm1_user` (
   `pm1_user_id` int(11) NOT NULL,
   `pm1_user_name` varchar(50) NOT NULL,
   `pm1_user_phonenumber` varchar(13) NOT NULL,
-  `pm1_user_gender` varchar(10) NOT NULL,
+  `pm1_user_gender` enum('1','2') NOT NULL,
   `pm1_user_birthdate` date NOT NULL,
   `pm1_user_email` varchar(50) NOT NULL,
   `pm1_user_address` text NOT NULL,
@@ -118,13 +144,6 @@ CREATE TABLE `pm1_user` (
   `pm1_user_in` int(2) NOT NULL,
   `pm1_user_out` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pm1_user`
---
-
-INSERT INTO `pm1_user` (`pm1_user_id`, `pm1_user_name`, `pm1_user_phonenumber`, `pm1_user_gender`, `pm1_user_birthdate`, `pm1_user_email`, `pm1_user_address`, `pm1_user_detailaddress`, `pm1_user_province`, `pm1_user_regency`, `pm1_user_district`, `pm1_user_poscode`, `pm1_user_university`, `pm1_user_major`, `pm1_user_degree`, `pm1_user_in`, `pm1_user_out`) VALUES
-(1, 'Bugi Setiawan', '087830431896', 'Laki-Laki', '1998-09-11', '111201609358@mhs.dinus.ac.id', 'Jl.Raya Banjaran No 38', 'Adiwerna, Jawa tengah', '13', '1302', '1302012', '52194', 5, 18, 5, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -7949,11 +7968,53 @@ INSERT INTO `pm2_regencies` (`id`, `province_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pm3_authstatus`
+--
+
+CREATE TABLE `pm3_authstatus` (
+  `pm3_authstatus_id` int(11) NOT NULL,
+  `pm3_authstatus_code` int(11) DEFAULT NULL,
+  `pm3_authstatus_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pm3_authstatus`
+--
+
+INSERT INTO `pm3_authstatus` (`pm3_authstatus_id`, `pm3_authstatus_code`, `pm3_authstatus_name`) VALUES
+(1, 1, 'Belum Aktif'),
+(2, 2, 'Aktif'),
+(3, 3, 'Diblokir');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pm3_color`
+--
+
+CREATE TABLE `pm3_color` (
+  `pm3_color_id` int(11) NOT NULL,
+  `pm3_color_code` int(11) DEFAULT NULL,
+  `pm3_color_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pm3_color`
+--
+
+INSERT INTO `pm3_color` (`pm3_color_id`, `pm3_color_code`, `pm3_color_name`) VALUES
+(1, 1, 'Hitam Putih'),
+(2, 2, 'Berwarna');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pm3_degree`
 --
 
 CREATE TABLE `pm3_degree` (
   `pm3_degree_id` int(11) NOT NULL,
+  `pm3_degree_code` int(5) DEFAULT NULL,
   `pm3_degree_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -7961,14 +8022,35 @@ CREATE TABLE `pm3_degree` (
 -- Dumping data for table `pm3_degree`
 --
 
-INSERT INTO `pm3_degree` (`pm3_degree_id`, `pm3_degree_name`) VALUES
-(1, 'D1'),
-(2, 'D2'),
-(3, 'D3'),
-(4, 'D4'),
-(5, 'S1'),
-(6, 'S2'),
-(7, 'S3');
+INSERT INTO `pm3_degree` (`pm3_degree_id`, `pm3_degree_code`, `pm3_degree_name`) VALUES
+(1, 1, 'D1'),
+(2, 2, 'D2'),
+(3, 3, 'D3'),
+(4, 4, 'D4'),
+(5, 5, 'S1'),
+(6, 6, 'S2'),
+(7, 7, 'S3');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pm3_level`
+--
+
+CREATE TABLE `pm3_level` (
+  `pm3_level_id` int(11) NOT NULL,
+  `pm3_level_code` int(11) DEFAULT NULL,
+  `pm3_level_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pm3_level`
+--
+
+INSERT INTO `pm3_level` (`pm3_level_id`, `pm3_level_code`, `pm3_level_name`) VALUES
+(1, 1, 'Developer'),
+(2, 2, 'Member'),
+(3, 3, 'Mitra');
 
 -- --------------------------------------------------------
 
@@ -8239,6 +8321,26 @@ INSERT INTO `pm3_major` (`pm3_major_id`, `pm3_major_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pm3_paper`
+--
+
+CREATE TABLE `pm3_paper` (
+  `pm3_paper_id` int(11) NOT NULL,
+  `pm3_paper_code` int(5) DEFAULT NULL,
+  `pm3_paper_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pm3_paper`
+--
+
+INSERT INTO `pm3_paper` (`pm3_paper_id`, `pm3_paper_code`, `pm3_paper_name`) VALUES
+(1, 1, 'A4 HVS - 80gr'),
+(2, 2, 'F4 HVS - 80gr');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pm3_university`
 --
 
@@ -8345,7 +8447,7 @@ CREATE TABLE `pm4_orders` (
   `pm4_orders_paper` varchar(15) NOT NULL,
   `pm4_orders_color` varchar(15) NOT NULL,
   `pm4_orders_cost` varchar(10) NOT NULL,
-  `pm4_orders_status` varchar(20) NOT NULL
+  `pm4_orders_status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -8353,7 +8455,7 @@ CREATE TABLE `pm4_orders` (
 --
 
 INSERT INTO `pm4_orders` (`pm4_orders_id`, `pm4_orders_document_title`, `pm4_orders_filename`, `pm4_orders_pagenumber`, `pm4_orders_sender_email`, `pm4_orders_receiver_name`, `pm4_orders_receiver_phonenumber`, `pm4_orders_receiver_address`, `pm4_orders_paper`, `pm4_orders_color`, `pm4_orders_cost`, `pm4_orders_status`) VALUES
-(0, 'Dokumentasi', 'FORM_PRAKTEK_KERJA_LAPANGAN.pdf', 1, '111201609358@mhs.dinus.ac.id', 'Bugi Setiawan', '087830431896', 'Bambang!', 'A4 HVS - 80gr', 'Berwarna', '1000', 'On Process');
+(1, 'Abdul Somad', 'a.pdf', 2100, '111201609358@mhs.dinus.ac.id', 'Gua', '0812345678', 'asdsadsadsadasdsadsa', 'A4 HVS - 80gr', 'Hitam - Putih', '2100', 1);
 
 -- --------------------------------------------------------
 
@@ -8388,7 +8490,8 @@ ALTER TABLE `pm0_loginregister`
 --
 ALTER TABLE `pm1_auth`
   ADD PRIMARY KEY (`pm1_auth_id`),
-  ADD UNIQUE KEY `pm1_auth_email` (`pm1_auth_email`);
+  ADD UNIQUE KEY `pm1_auth_email` (`pm1_auth_email`),
+  ADD UNIQUE KEY `pm1_auth_code` (`pm1_auth_code`);
 
 --
 -- Indexes for table `pm1_user`
@@ -8418,16 +8521,45 @@ ALTER TABLE `pm2_regencies`
   ADD KEY `regencies_province_id_index` (`province_id`);
 
 --
+-- Indexes for table `pm3_authstatus`
+--
+ALTER TABLE `pm3_authstatus`
+  ADD PRIMARY KEY (`pm3_authstatus_id`),
+  ADD UNIQUE KEY `pm3_authstatus_code` (`pm3_authstatus_code`);
+
+--
+-- Indexes for table `pm3_color`
+--
+ALTER TABLE `pm3_color`
+  ADD PRIMARY KEY (`pm3_color_id`),
+  ADD UNIQUE KEY `pm3_color_code` (`pm3_color_code`);
+
+--
 -- Indexes for table `pm3_degree`
 --
 ALTER TABLE `pm3_degree`
-  ADD PRIMARY KEY (`pm3_degree_id`);
+  ADD PRIMARY KEY (`pm3_degree_id`),
+  ADD UNIQUE KEY `pm3_degree_code` (`pm3_degree_code`);
+
+--
+-- Indexes for table `pm3_level`
+--
+ALTER TABLE `pm3_level`
+  ADD PRIMARY KEY (`pm3_level_id`),
+  ADD UNIQUE KEY `pm3_level_code` (`pm3_level_code`);
 
 --
 -- Indexes for table `pm3_major`
 --
 ALTER TABLE `pm3_major`
   ADD PRIMARY KEY (`pm3_major_id`);
+
+--
+-- Indexes for table `pm3_paper`
+--
+ALTER TABLE `pm3_paper`
+  ADD PRIMARY KEY (`pm3_paper_id`),
+  ADD UNIQUE KEY `pm3_paper_code` (`pm3_paper_code`);
 
 --
 -- Indexes for table `pm3_university`
@@ -8461,19 +8593,31 @@ ALTER TABLE `pm4_temporders`
 -- AUTO_INCREMENT for table `pm0_loginregister`
 --
 ALTER TABLE `pm0_loginregister`
-  MODIFY `pm0_loginregister_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `pm0_loginregister_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `pm1_auth`
 --
 ALTER TABLE `pm1_auth`
-  MODIFY `pm1_auth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pm1_auth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `pm1_user`
 --
 ALTER TABLE `pm1_user`
-  MODIFY `pm1_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pm1_user_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pm3_authstatus`
+--
+ALTER TABLE `pm3_authstatus`
+  MODIFY `pm3_authstatus_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `pm3_color`
+--
+ALTER TABLE `pm3_color`
+  MODIFY `pm3_color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pm3_degree`
@@ -8482,10 +8626,22 @@ ALTER TABLE `pm3_degree`
   MODIFY `pm3_degree_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `pm3_level`
+--
+ALTER TABLE `pm3_level`
+  MODIFY `pm3_level_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `pm3_major`
 --
 ALTER TABLE `pm3_major`
   MODIFY `pm3_major_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
+
+--
+-- AUTO_INCREMENT for table `pm3_paper`
+--
+ALTER TABLE `pm3_paper`
+  MODIFY `pm3_paper_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pm3_university`
@@ -8494,10 +8650,16 @@ ALTER TABLE `pm3_university`
   MODIFY `pm3_university_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
+-- AUTO_INCREMENT for table `pm4_orders`
+--
+ALTER TABLE `pm4_orders`
+  MODIFY `pm4_orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `pm4_temporders`
 --
 ALTER TABLE `pm4_temporders`
-  MODIFY `pm4_temporders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `pm4_temporders_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

@@ -23,7 +23,7 @@
           echo '<div class="alert alert-danger">'. $this->session->flashdata('error') .'</div>';
         }
       ?>
-      <?php echo form_open('auth/prosesloginadmin'); ?>
+      <?php echo form_open('auth/proseslogindeveloper'); ?>
         <div class="form-group has-feedback">
           <?php
             $data = array('type' => 'email', 'class' => 'form-control', 'id' => 'email', 'name' => 'email', 'placeholder' => 'Masukkan Email', 'value' => set_value('email'), 'required' => 'true');
@@ -33,7 +33,7 @@
         </div>
         <div class="form-group has-feedback">
           <?php
-            $data = array('type' => 'password', 'class' => 'form-control', 'id' => 'password', 'name' => 'password', 'placeholder' => 'Masukkan Email', 'value' => set_value('password'), 'required' => 'true');
+            $data = array('type' => 'password', 'class' => 'form-control', 'id' => 'password', 'name' => 'password', 'placeholder' => 'Masukkan Password', 'value' => set_value('password'), 'required' => 'true');
             echo form_input($data);
             echo form_error('password');
           ?>
