@@ -192,4 +192,10 @@ class Auth extends CI_Controller {
 		$data = array('data' => $data);
 		$this->load->view('Auth/email', $data);
 	}
+
+	/* ----- MITRA ----- */
+	public function loginmitra()
+	{
+		$this->load->view('Auth/loginmitra');
+	}
 }
