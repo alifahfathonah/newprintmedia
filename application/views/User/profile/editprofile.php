@@ -302,7 +302,7 @@
                                   $data_tahun = $tahun->result_array();
                                   foreach($data_tahun as $row) {
                                   ?>
-                                  <<option value="<?php echo $row['pm3_year_id']; ?>" <?php echo set_select('pm3_year_name', $row['pm3_year_id'], ($row['pm3_year_id'] == $info['pm1_user_out'])? true : false ); ?>><?php echo $row['pm3_year_name']; ?></option>
+                                  <option value="<?php echo $row['pm3_year_id']; ?>" <?php echo set_select('pm3_year_name', $row['pm3_year_id'], ($row['pm3_year_id'] == $info['pm1_user_out'])? true : false ); ?>><?php echo $row['pm3_year_name']; ?></option>
                                 <?php } ?>
                               </select>
                             </div>
