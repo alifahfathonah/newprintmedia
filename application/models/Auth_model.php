@@ -54,6 +54,7 @@ class Auth_model extends CI_Model{
 		$ci->email->subject('AKTIFASI AKUN PRINT MEDIA');
 		$ci->email->message($isi);
 		$this->email->send();
+		
 		if ($this->agent->is_browser())
 		{
 			$agent = $this->agent->browser().' '.$this->agent->version();
