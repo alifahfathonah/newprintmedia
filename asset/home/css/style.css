@@ -2,524 +2,255 @@
 [Main Stylesheet]
 
 Author:	WREP
-Version:	1.0
+Version:	1.1
 Created:	8 Agustus 2018
+
+#1.1
+8 Januari 2018
 Template:	PRINT MEDIA
 -------------------------------------------------------------------*/
+html{
+    scroll-behavior: smooth;
+}
 body{
     background: #fff;
+    font-family: 'Raleway', sans-serif;
 }
-.section-intro .slick-arrow{
-    visibility: hidden;
-    display: none;
+a{
+    text-decoration: none;
 }
 
-/*---------- HEADER NAVBAR ----------*/
-.navbar{
+/* ---------- HEADER DAN NAVBAR ---------- */
+#header .navbar{
     background: #fff;
-}
-.section .default-header{
-    text-align: center;
-}
-.section .default-header h3{
-    text-transform: uppercase;
-    font-size: 2em;
-    padding-bottom: 50px;
-    font-weight: 700;
-}
-
-/*---------- ALERT ----------*/
-.bg-success{
-    background: #4CAF50;
-    color: #fff;
-}
-.bg-danger{
-    background: #E53935;
-    color: #fff;
-}
-.bg-warning{
-    background: #E65100;
-    color: #fff;
-}
-.bg-primary{
-    background: #0288D1;
-    color: #fff;
-}
-
-/*---------- SECTION INTRO ----------*/
-.section .container{
-    padding: 75px 0;
-}
-.section-intro{
-    padding-top: 60px;
-}
-.section-intro img{
-    height: 350px;
-    width: 100%;
-}
-/*---------- SECTION TUTORIAL ----------*/
-.section-tutorial{
-    text-align: center;
-    min-height: 100vh;
-}
-.section-tutorial .tutorial-body{
-    padding: 25px 20px;
-}
-.section-tutorial .tutorial-body h4{
-    font-weight: 700;
-}
-
-/*---------- SECTION LAYANAN ----------*/
-.section-layanan{
-    background: #F9A825;
-}
-.section-layanan .card{
-    text-align: center;
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-.section-layanan .card:hover{
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
-.section-layanan .card .card-img{
-    padding: 25px 0 15px;
-}
-.section-layanan .card h4{
-    padding: 5px 0 10px;
-}
-
-/*---------- SECTION ABOUT ----------*/
-.section-about .header-about{
-    text-align: center;
-    padding: 10px 0 50px;
-}
-.section-about .header-about h3{
-    font-weight: 700;
-    color: #F9A825;
-}
-.section-about .header-about span{
-    color: #000;
-}
-
-/*---------- SECTION AUTH ----------*/
-.section-auth{
-    padding-top: 35px;
-    min-height: 50vh;
-}
-.section-auth .intro-kiri{
-    padding: 70px 50px 0 0;
-}
-.section-auth .intro-kiri .form-top{
-    text-align: center;
-    padding-bottom: 10px;
-}
-.section-auth .intro-kiri ul{
-    list-style-type: none;
-    padding-left: 0;
-    padding-top: 15px;
-}
-.section-auth .intro-kiri ul li{
-    display: inline-block;
-}
-.section-auth .intro-kiri .card{
-    height: 425px;
-}
-.section-auth .intro-kiri .containerform{
-    padding: 25px; 
-}
-.section-auth .intro-kiri .btn-sign{
-    background-color: #F9A825;
-    color: #fff;
-    padding: 14px 20px;
-    margin: 2px;
-    cursor: pointer;
-    width: 100%;
-    border-radius: 24px;
-    border: 2px solid #fff;
-    transition: all 1s;
-    font-weight: 700;
-}
-.section-auth .intro-kiri .btn-sign:hover{
-    background: #fff;
-    color: #F9A825;
-    border: 2px solid #F9A825;
-    transition: all 1s;
-    font-weight: 700;
-}
-.section-auth img{
-    height: 400px;
-}
-
-/*--------------- 
-    TENTANG 
----------------*/
-/*---------- SECTION BANNER ----------*/
-.section-tentang-banner{
-    background: url('../../../asset/home/img/banner1.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-    transform: translate(-50%, 222px, 0px);
-    margin-top: 60px;
-}
-.section-tentang-banner h4{
-    font-family: 'Fredoka One', cursive;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 4px 2px #000;
-    font-size: 4em;
-    padding-top: 0;
-}
-.section-tentang{
-    padding: 50px;
-    text-align: center;
-}
-.section-visi-misi .col-lg-6{
-    padding: 0 25px;
-}
-.section-visi-misi h4{
-    color: #000;
-    font-size: 2.5em;
-    font-weight: 700;
-    padding: 10px 0;
-}
-.section-visi-misi h4 span{
-    color: #F9A825;
-}
-/*---------- SECTION TEAM ----------*/
-.section-team{
-    background: #f5f5f5;
-    text-align: center;
-}
-.section-team h4{
-    font-size: 2em;
-    text-transform: uppercase;
-    padding-bottom: 25px;
-}
-.section-team img{
-    width: 175px;
-    height: 175px;
-}
-.section-team .team-body{
-    padding: 20px 0;
-}
-.section-team .team-body h5{
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-/*---------- SECTION SUKSES ----------*/
-.section-sukses{
-    margin: 50px 0;
-}
-.section-sukses .jumbotron{
-    background: #F9A825;
-    text-align: center;
-}
-
-/*---------- FOOTER ----------*/
-.footer{
-    background: #f5f5f5;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-    padding: 30px 20px 0;
-}
-.footer .list ul{
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-}
-.footer .list ul li{
-    background: #b9babe;
-    margin: 0 10px;
-    border-radius: 10px;
-    align-items: center;
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-.footer .list ul .facebook{
-    background: #3b5998;
-    color: #fff;
+#header .navbar .navbar-brand{
+    font-weight: 700;
 }
-.footer .list ul .instagram{
-    background: #c32aa3;
-    color: #fff;
+#header a{
+    color: #000;
+    text-decoration: none;
+    transition: all 0.5s;
 }
-.footer .list ul .youtube{
-    background: #ff0000;
-    color: #fff;
+#header a:hover{
+    color: #F9A825;
+    transition: all 0.5s;
 }
-.footer .copyright{
-    width: 100%;
-    padding: 15px 0 0;
-    line-height: 15px;
-    padding-top: 15px;
+#header .navbar .navbar-nav li{
+    padding: 0 10px;
+}
+#header .navbar .navbar-nav .btn-custom{
+    border-radius: 30px;
+    color: #000;
+    width: 150px;
     text-align: center;
 }
-.footer .copyright .garis{
-    border-top: 2px solid #e0e0e0;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 0 20px;
+#header .navbar .navbar-nav .btn-signin:hover{
+    color: #F9A825;
+    transition: all 0.5s;
+}
+#header .navbar .navbar-nav .btn-signup{
+    border: 1px solid #F9A825;
+    transition: all 0.5s;
+    color: #F9A825;
+}
+#header .navbar .navbar-nav .btn-signup:hover{
+    background: #F9A825;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.5s;
+    color: #fff;
+    font-weight: 700;
 }
 
-/* RESPONSIVE */
-/* ----- MOBILE ----- */
-@media only screen and (device-width: 320px){
-    .section-about{
-        display: none;
-    }
+/* ---------- SEARCH ENGINE ---------- */
+#search-engine{
+    background-color: #F9A825;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    max-width: 100%;
+    padding: 20% 0;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px){
-    .navbar-light{
-        background: #fff;
-    }
-    .navbar .navbar-brand{
-        color: #000;
-    }
-    .navbar .navbar-nav .nav-link{
-        color: #000;
-    }
-    .navbar .navbar-nav .kotak2 .nav-link{
-        color: #000;
-    }
-    #mulai{
-        display: none;
-    }
-    .section-tentang{
-        margin-top: 70px;
-        padding: 5px;
-    }
-    .section-tentang-banner h4{
-        font-size: 3em;
-    }
-    .section-auth{
-        display: none;
-    }
-    .section-auth-mobile{
-        padding: 190px 0;
-    }
-    .section-auth-mobile .header-mobile{
-        text-align: center;
-    }
-    .section-auth-mobile .btn-sign{
-        background-color: #F9A825;
-        color: #fff;
-        padding: 14px 20px;
-        margin: 2px;
-        cursor: pointer;
-        width: 100%;
-        border-radius: 24px;
-        border: 2px solid #fff;
-        transition: all 1s;
-        font-weight: 700;
-    }
-    .section .container{
-        width: 100%;
-        padding: 25px 30px;
-    }
-    .section-tutorial{
-        padding-top: 50px;
-    }
-    .section .default-header h3{
-        font-size: 1.5em;
-        padding-bottom: 15px;
-    }
-    .section-layanan{
-        text-align: center;
-    }
-    .section-layanan .header-layanan h4{
-        font-weight: 700;
-    }
-    .section .row{
-        margin-right: 0;
-    }
-    .section-layanan .my-4 .col-lg-6{
-        margin-left: 15px;
-    }
-    .section-layanan .col-lg-6 img{
-        width: 100%;
-        margin-left: 15px;
-    }
-    .section-layanan .col-lg-6 h4{
-        padding: 10px 0;
-        font-weight: 700;
-        color: #fff;
-    }
-    .footer .list ul{
-        padding: 0;
-    }
- }
- /* ----- TABLET IPAD ----- */
- @media screen and (min-width: 485px) and (max-width: 800px){
-    .navbar-light{
-        background: #fff;
-    }
-    .navbar .navbar-brand{
-        color: #000;
-    }
-    .navbar .navbar-nav .nav-link{
-        color: #000;
-    }
-    .navbar .navbar-nav .kotak2 .nav-link{
-        color: #000;
-    }
-    .section-intro{
-        padding-top: 55px;
-    }
-    .section .container{
-        width: 100%;
-        padding: 25px;
-    }
-    .section-auth .col-md-12{
-        margin: 50px 0;
-    }
-    .section-auth .col-md-12 img{
-        display: none;
-    }
-    .section-auth-mobile{
-        display: none;
-    }
-    .section .default-header h3{
-        font-size: 1.5em;
-        padding-bottom: 15px;
-    }
-    .section-layanan .header-layanan{
-        text-align: center;
-    }
-    .section-layanan .header-layanan h4{
-        font-weight: 700;
-    }
-    .section-layanan .col-lg-6{
-        padding: 0 30px;
-    }
-    .section-layanan .col-lg-6 img{
-        width: 100%;
-    }
-    .section-layanan .col-lg-6 h4{
-        padding: 10px 0;
-        font-weight: 700;
-        color: #fff;
-    }
-    .section-tutorial{
-        min-height: 50vh;
-    }
-    .section-layanan{
-        text-align: center;
-    }
-    .section-layanan .col-lg-6{
-        padding: 0 30px;
-    }
-    .section-layanan .col-lg-6 img{
-        width: 100%;
-    }
-    .section-layanan .col-lg-6 h4{
-        padding: 10px 0;
-        font-weight: 700;
-        color: #fff;
-    }
- }
-@media only screen and (min-width:960px) and (max-width: 1440px){
-    #navbar{
-        background: #F9A825;
-    }
-    .navbar span{
-        display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
-        vertical-align: middle;
-        content: "";
-        background: no-repeat 50%;
-        background-size: 100% 100%;
-    }
-    .navbar .navbar-brand{
-        color: #000;
-    }
-    .navbar ul li{
-        margin: 0 15px;
-    }
-    .navbar .navbar-nav .nav-link{
-        color: #000;
-    }
-    .navbar .navbar-nav .kotak1 .nav-link:hover{
-        color: #fff;
-    }
-    .navbar .navbar-nav .kotak2 .nav-link{
-        color: #fff;
-    }
-    .navbar .navbar-nav .kotak2 .nav-link:hover{
-        color: #000;
-    }
-    .navbar ul li a .kotak-biru{
-        color: #fff;
-    }
-    .navbar span{
-        display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
-        vertical-align: middle;
-        content: "";
-        background: no-repeat 50%;
-        background-size: 100% 100%;
-    }
-    .navbar ul li .kotak-biru{
-        border: 2px solid #fff;
-        border-color: #005e59;
-        border-radius: 25px;
-        width: 150px;
-        text-align: center;
-        transition: all 1s;
-    }
-    .navbar ul li .kotak-biru:hover{    
-        border: 2px solid #005e59;
-        background: #005e59;
-        border-radius: 25px;
-        width: 150px;
-        color: #fff;
-        transition: all 1s;
-    }
-    .navbar ul li .kotak-hijau{
-        border: 2px solid #F9A825;
-        background: #F9A825;
-        border-radius: 25px;
-        width: 150px;
-        text-align: center;
-        color: #fff;
-        transition: all 1s;
-    }
-    .navbar ul li .kotak-hijau:hover{
-        border: 2px solid #fff;
-        border-color: #F9A825;
-        background: #fff;
-        border-radius: 25px;
-        width: 150px;
-        color: #000;
-        transition: all 1s;
-    }
-    
-    .section-tutorial{
-        min-height: 50vh;
-    }
-    .mobile{
-        display: none;
-    }
+#search-engine h2{
+    font-weight: 700;
+    text-transform: uppercase;
 }
-/* ----- FULL HD ----- */
-@media only screen and (min-width:1440px){
-    .container{
-        width: 100%;
-        margin-right: auto;
-        margin-left: auto;
-    }
-    .section-auth-mobile{
-        display: none;
-    }
+#search-engine .search{
+    width: 100%;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.default-div{
+    padding: 100px;
+}
+.default-heading h3{
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+/* ---------- ABOUT ---------- */
+#about h3{
+    color: #F9A825;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+#about img{
+    width: 100%;
+    height: 100%;
+}
+#about p{
+    text-align: left;
+}
+
+/* ---------- PEMESANAN ---------- */
+#pemesanan{
+    background: #262626;
+    text-align: center;
+    color: #fff;
+}
+#pemesanan .promo{
+    color: #F9A825;
+}
+#pemesanan .pemesanan-image{
+    margin: 25px 0;
+}
+#pemesanan .pemesanan-text h4{
+    font-weight: 700;
+}
+
+/* ---------- MITRA ---------- */
+#mitra{
+    background: url('/printmedia-beta/asset/home/img/background1.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff;
+}
+#mitra h3{
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+#mitra p{
+    padding-right: 50px;
+}
+#mitra .btn{
+    border-radius: 25px;
+    padding: 10px;
+    color: #fff;
+    font-weight: 700;
+    margin: 25px 0;
+}
+
+/* ---------- MITRA ---------- */
+#blog{
+    background: #f5f5f5;
+}
+#blog .card{
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#blog .card:hover{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+#blog h3{
+    text-align: center;
+}
+#blog .card-body .badge{
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+#blog .card-body h4{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* ---------- FOOTER ---------- */
+#footer{
+    background: #F9A825;
+    padding: 5px;
+    font-weight: 300;
+    line-height: 50px;
+}
+#footer .container-custom{
+    border-top: 1px solid #bb7a12;
+    line-height: 50px;
+}
+#footer ul{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    list-style: none;
+}
+#footer ul li{
+    margin: 0 10px;
+}
+#footer ul li a{
+    text-decoration: none;
+    color: #000;
+}
+#footer ul li a:hover{
+    color: #fff;
+}
+
+/* ---------- 
+AUTHENTICATION - LOGIN DAN REGISTER
+---------- */
+#auth{
+    padding: 100px 0 0;
+}
+#auth .card{
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+#auth .card h4{
+    margin: 20px 0;
+}
+#auth .card input{
+    box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+#auth .card .tambahan{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#auth .card .tambahan a{
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+}
+#auth .card p a:hover{
+    font-weight: 700;
+    color: #F9A825;
+}
+#auth .card .btn-auth{
+    font-weight: 700;
+    border-radius: 30px;
+    color: #F9A825;
+    width: 150px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #F9A825;
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    transition: all 0.5s;
+}
+#auth .card .btn-auth:hover{
+    font-weight: 700;
+    color: #fff;
+    background: #F9A825;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.5s;
+}
+#auth .auth-footer{
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 0;
+    line-height: 50px;
+}
+#auth .auth-footer .garis{
+    border-top: 1px solid #dadada;
 }

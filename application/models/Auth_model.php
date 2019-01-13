@@ -126,86 +126,8 @@ class Auth_model extends CI_Model{
         $this->db->from('pm1_auth');
         $this->db->select('pm1_auth_email, pm1_auth_password, pm1_auth_level, pm1_auth_status');
         $this->db->where('pm1_auth_email', $email);
-		$query = $this->db->get();
+		return $this->db->get();
 		
-        if($query->num_rows() > 0)
-        {
-            $data = $query->row_array();
-            if(password_verify($password, $data['pm1_auth_password']))
-            {
-                if($data['pm1_auth_status'] == "2")
-				{
-					if($data['pm1_auth_level'] === "2")
-					{
-						$this->session->set_userdata('akses', 'Member');
-						$this->session->set_userdata('email', $data['pm1_auth_email']);
-						$this->session->set_userdata('status', 'login');
-
-						if ($this->agent->is_browser())
-						{
-							$agent = $this->agent->browser().' '.$this->agent->version();
-						}
-						elseif ($this->agent->is_robot())
-						{
-							$agent = $this->agent->robot();
-						}
-						elseif ($this->agent->is_mobile())
-						{
-							$agent = $this->agent->mobile();
-						}
-						else
-						{
-							$agent = 'Unidentified User Agent';
-						}
-
-						date_default_timezone_set("Asia/Jakarta");
-						$data = array(
-							'pm0_loginregister_email' => $this->input->post('email'),
-							'pm0_loginregister_ip' => $this->input->ip_address(),
-							'pm0_loginregister_browser' => $agent,
-							'pm0_loginregister_platform' => $this->agent->platform(),
-							'pm0_loginregister_time' => date('Y-m-d h:i:s'),
-							'pm0_loginregister_information' => 'Login',
-							'pm0_loginregister_session' => session_id(),
-						);
-						$data = $this->Auth_model->Insert('pm0_loginregister', $data);
-						redirect(base_url('user/index'));
-					}
-					
-					if($data['pm1_auth_level'] === "1")
-					{
-						$this->session->set_flashdata('error', 'Gagal Login!');
-						redirect(base_url('login'));
-					}
-					
-					if($data['pm1_auth_level'] === "3")
-					{
-						$this->session->set_flashdata('error', 'Gagal Login!');
-						redirect(base_url('login'));
-					}
-				}
-				if($data['pm1_auth_status'] == "1")
-				{
-					$this->session->set_flashdata('belumaktif', 'Gagal Login!');
-					redirect(base_url('login'));
-				}
-				if($data['pm1_auth_status'] == "3")
-				{
-					$this->session->set_flashdata('error', 'Maaf! Akun Anda telah kami <b>BLOKIR</b>. Karena terbukti melanggar beberapa peraturan yang telah diterapkan. Harap hubungi kami melalui menu Kontak, jika terbukti tidak melakukan kesalahan.');
-					redirect(base_url('login'));
-				}
-            }
-            else 
-            {
-                $this->session->set_flashdata('errorpassword', 'Maaf! Password Salah.');
-				redirect(base_url('login'));
-            }
-        }
-        else 
-        {
-            $this->session->set_flashdata('error', 'Maaf!');
-			redirect(base_url('login'));
-        }
 	}
 	
 	public function loginDeveloper()

@@ -1,158 +1,89 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-<title>Print Media | Solusi Percetakan Masa Kini</title>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Material Design for Bootstrap CSS -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/home/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/home/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.min.css" />
-<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Roboto:400,700" rel="stylesheet">
-
+    <title>PrintMedia Percetakan Online di Indonesia Kelas Mahasiswa</title>
+    <?php $this->load->view('Home/include/css'); ?>
 </head>
 <body>
-<div id="navbar">
-    <?php $this->load->view('home/inc/header'); ?>
+
+<div id="header">
+    <?php $this->load->view('Home/include/header'); ?>
 </div>
 
-<section class="section section-auth desktop" id="mulai">
+<div id="auth">
     <div class="container">
-        <!-- AWAL ROW -->
         <div class="row">
-            <div class="col-lg-3"></div>
-            <!-- TENGAH -->
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <div class="intro-kiri" style="padding-top:5px">
-                    <div class="card">
-                        <?php echo form_open('auth/proseslogin'); ?>
-                            <div class="containerform">
-                                <div class="form-top">
-                                    <h4>Login</h4>
-                                    <span>Belum punya akun PrintMedia? <a href="<?php echo base_url('register'); ?>">Daftar!</a></span>
-                                </div>
-                                <?php        
-                                if($this->session->flashdata('error')):
-                                    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.min.js"></script>';
-                                    echo '<script>
-                                            swal({
-                                                type: "'.'error'.'",
-                                                title: "'.$this->session->flashdata('error').'",
-                                                timer: 3000,
-                                                customClass: "'.'animated bounceIn'.'",
-                                            })
-                                        </script>';
-                                endif;
-                                if($this->session->flashdata('errorpassword')):
-                                    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.min.js"></script>';
-                                    echo '<script>
-                                            swal({
-                                                type: "'.'error'.'",
-                                                title: "'.$this->session->flashdata('errorpassword').'",
-                                                timer: 10000,
-                                                customClass: "'.'animated bounceIn'.'",
-                                            })
-                                        </script>';
-                                endif;
-                                if($this->session->flashdata('belumaktif')):
-                                    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.min.js"></script>';
-                                    echo '<script>
-                                            swal({
-                                                type: "'.'error'.'",
-                                                title: "'.$this->session->flashdata('belumaktif').'",
-                                                text: "'.'Akun Anda Belum Aktif'.'",
-                                                timer: 10000,
-                                                customClass: "'.'animated bounceIn'.'",
-                                            })
-                                        </script>';
-                                endif;
-                                ?>
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Email address</label>
-                                    <?php 
-                                    $data = array('type' => 'email', 'name' => 'email', 'class' => 'form-control', 'value' => set_value('email'), 'required' => 'true', 'oninvalid' => 'this.setCustomValidity('."'Email Tidak Boleh Kosong'".')', 'oninput' => 'setCustomValidity('."''".')', 'autofocus' => 'true'); 
-                                    echo form_input($data);
-                                    echo form_error('email', '<p class="text-danger">', '</p>'); 
-                                    ?>
-                                </div>
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Password</label>
-                                    <?php 
-                                    $data = array('type' => 'password', 'name' => 'password', 'class' => 'form-control', 'required' => 'true', 'oninvalid' => 'this.setCustomValidity('."'Password Tidak Boleh Kosong'".')', 'oninput' => 'setCustomValidity('."''".')'); 
-                                    echo form_input($data);
-                                    echo form_error('password', '<p class="text-danger">', '</p>'); 
-                                    ?>
-                                </div>
-
-                                <div class="clearfix">
-                                    <?php echo form_submit('submit', 'Login', array('class' => 'btn btn-sign')); ?>
-                                </div>
-                            </div>
-                        <?php echo form_close(); ?>
-                        <a href="<?php echo base_url('lupaemail'); ?>" class="text-center text-danger">Lupa Akun?</a>
-                    </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <h4 class="text-center">Login</h4>
+                    <?php
+                    if($this->session->flashdata('error'))
+                    {
+                        echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
+                        echo '<script>
+                                Swal({
+                                    type: "error",
+                                    title: "'.$this->session->flashdata('error').'",
+                                })
+                            </script>';
+                    }
+                    if($this->session->flashdata('sukses'))
+                    {
+                        echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
+                        echo '<script>
+                                Swal({
+                                    type: "success",
+                                    title: "'.$this->session->flashdata('sukses').'",
+                                })
+                            </script>';
+                    }
+                    ?>
+                    <?php echo form_open('auth/proseslogin'); ?>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <?php
+                            if(form_error('email'))
+                            {
+                                echo '<input type="email" class="form-control is-invalid" name="email" value="'.set_value('email').'" autofocus>';
+                            }
+                            else
+                            {
+                                echo '<input type="email" class="form-control" name="email" placeholder="Masukkan Email" value="'.set_value('email').'" autofocus>';
+                            }
+                            echo form_error('email', '<p class="text-danger">', '</p>');
+                            ?>
+                        </div>
+                        <div class="form-group">
+                            <label>Kata Sandi</label>
+                            <?php
+                            if(form_error('password'))
+                            {
+                                echo '<input type="password" class="form-control is-invalid" name="password">';
+                            }
+                            else
+                            {
+                                echo '<input type="password" class="form-control" name="password" placeholder="Masukkan Kata Sandi">';
+                            }
+                            echo form_error('password', '<p class="text-danger">', '</p>');
+                            ?>
+                        </div>
+                        <button type="submit" class="btn btn-auth">LOGIN</button>
+                    <?php echo form_close(); ?>
+                    <p class="tambahan"><a href="<?php echo base_url('lupaakun'); ?>" class="mr-auto">Lupa Password</a> <a href="<?php echo base_url('register'); ?>" class="ml-auto">Daftar Sekarang</a></p>
                 </div>
             </div>
-            <!-- TENGAH -->
-            <div class="col-lg-3"></div>
+            <div class="col-md-3"></div>
         </div>
-        <!-- AKHIR ROW -->
-    </div> 
-</section>
-
-<section class="section section-auth-mobile mobile">
-    <div class="container-fluid">
-        <div class="header-mobile">
-            <h3>Login</h3>
-            <p>Belum punya akun Print Media? Silahkan <a href="<?php echo base_url('register'); ?>">Daftar</a></p>
+        <div class="auth-footer">
+            <div class="garis"></div>
+            <p>© <?php echo date('Y'); ?> - PT Print Media | Time: {elapsed_time} | {memory_usage} </p>
         </div>
-        <?php echo form_open('auth/proseslogin'); ?>
-            <?php        
-            if($this->session->flashdata('error')):
-                echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.28.4/sweetalert2.min.js"></script>';
-                echo '<script>
-                        swal({
-                            type: "'.'error'.'",
-                            title: "'.$this->session->flashdata('error').'",
-                            text: "'.'Akun Anda Tidak Terdaftar'.'",
-                            timer: 3000,
-                            customClass: "'.'animated bounceIn'.'",
-                        })
-                    </script>';
-            endif;
-            ?>
-            <div class="form-group">
-                <label class="bmd-label-floating">Email address</label>
-                <?php 
-                $data = array('type' => 'email', 'name' => 'email', 'class' => 'form-control', 'value' => set_value('email')); 
-                echo form_input($data);
-                echo form_error('email', '<p class="text-danger">', '</p>');
-                ?>
-            </div>
-            <div class="form-group">
-                <label class="bmd-label-floating">Password</label>
-                <?php 
-                $data = array('type' => 'password', 'name' => 'password', 'class' => 'form-control', 'value' => set_value('password')); 
-                echo form_input($data);
-                echo form_error('password', '<p class="text-danger">', '</p>'); 
-                ?>
-            </div>
-            <?php echo form_submit('submit', 'Login', array('class' => 'btn btn-sign')); ?>
-        <?php echo form_close(); ?>
     </div>
-</section>
+</div>
 
-<section class="footer">
-    <?php $this->load->view('home/inc/footer'); ?>
-</section>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  crossorigin="anonymous"></script>
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"  crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"  crossorigin="anonymous"></script>
-<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+<!-- JavaScript -->
+<?php $this->load->view('Home/include/js'); ?>
 
 </body>
 </html>
