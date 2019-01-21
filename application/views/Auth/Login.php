@@ -28,6 +28,16 @@
                                 })
                             </script>';
                     }
+                    if($this->session->flashdata('tidak_ada'))
+                    {
+                        echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
+                        echo '<script>
+                                Swal({
+                                    type: "error",
+                                    title: "'.$this->session->flashdata('tidak_ada').'",
+                                })
+                            </script>';
+                    }
                     if($this->session->flashdata('sukses'))
                     {
                         echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
