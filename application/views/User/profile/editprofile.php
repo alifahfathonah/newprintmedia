@@ -89,7 +89,7 @@
                             <div class="form-group">
                               <label class="label">Jenis Kelamin : </label>
                               <?php
-                                $data = array('Laki-Laki' => 'Laki-Laki', 'Perempuan' => 'Perempuan');
+                                $data = array('Laki - Laki' => 'Laki-Laki', 'Perempuan' => 'Perempuan');
                                 echo form_dropdown('jenis_kelamin', $data, set_value('jenis_kelamin'), ['class' => 'form-control', 'value' => $info['pm1_user_gender']]);
                               ?>                          
                             </div>
