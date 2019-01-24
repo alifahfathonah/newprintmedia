@@ -145,32 +145,57 @@ class User extends CI_Controller
 
 	public function hitunghalaman()
 	{
-		$config['upload_path'] = "./asset/user/pemesanan";
- 		$config['allowed_types'] = "pdf";
- 		$config['max_size'] = "30720";
- 		$config['remove_space'] = TRUE;
- 		
- 		$this->load->library('upload', $config);
- 
- 		if($this->upload->do_upload("inputFile"))
- 		{
-			$data=array('upload_data' => $this->upload->data());
-			$nama=$data['upload_data']['file_name'];				 
-			$data2 = base_url('asset/user/pemesanan/').$data['upload_data']['file_name'];
- 
- 			$parser = new \Smalot\PdfParser\Parser();
- 			$pdf    = $parser->parseFile($data2);
- 	
-			$details  = $pdf->getDetails();							
-			
-			$halaman = $details['Pages'];
-			
-			$this->User_model->inputTemp($nama,$halaman);
+		// Set Aturan
+		$this->form_validation->set_rules('judul_dokumen', 'Judul Dokumen', 'trim|required');
+		$this->form_validation->set_rules('inputFile', 'File', 'trim|required|xss_clean');	
+		$this->form_validation->set_rules('nama_penerima', 'Nama', 'trim|required|xss_clean');	
+		$this->form_validation->set_rules('nohape_penerima', 'Nomor Handphone', 'trim|required|numeric|xss_clean|min_length[10]|max_length[13]');	
+		$this->form_validation->set_rules('alamat_penerima', 'Alamat', 'trim|required|xss_clean');		
 
-			redirect('user/upload2');
-		 }		
+		// Set Pesan 
+		$this->form_validation->set_message('required', ' Maaf, Kolom <b>%s</b> Anda Tidak Boleh Kosong');
+		$this->form_validation->set_message('numeric', 'Maaf, %s Tidak boleh mengandung huruf');
+		$this->form_validation->set_message('min_length', 'Maaf, <b>%s</b> Minimal <b>%s</b> Angka');
+		$this->form_validation->set_message('max_length', 'Maaf, <b>%s</b> Maksimal <b>%s</b> Angka');
+		
+		if($this->form_validation->run() == FALSE)
+		{		
+			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->tampilProfile('pm1_user', $email);
+			$cek=array('cek'=> $cek);
+			$this->load->view('user/upload', $cek);			
+		}
 
- 		echo $this->upload->display_errors();
+		else
+		{
+			$config['upload_path'] = "./asset/user/pemesanan";
+			$config['allowed_types'] = "pdf";
+			$config['max_size'] = "30720";
+			$config['remove_space'] = TRUE;
+			
+			$this->load->library('upload', $config);
+	
+			if($this->upload->do_upload("inputFile"))
+			{
+				$data=array('upload_data' => $this->upload->data());
+				$nama=$data['upload_data']['file_name'];				 
+				$data2 = base_url('asset/user/pemesanan/').$data['upload_data']['file_name'];
+	
+				$parser = new \Smalot\PdfParser\Parser();
+				$pdf    = $parser->parseFile($data2);
+		
+				$details  = $pdf->getDetails();							
+				
+				$halaman = $details['Pages'];
+				
+				$this->User_model->inputTemp($nama,$halaman);
+
+				redirect('User/upload2');
+			}		
+
+			echo $this->upload->display_errors();
+			
+		}
 	}
 
 	public function upload2()

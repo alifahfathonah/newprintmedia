@@ -57,7 +57,7 @@
             <!-- Awal Card -->
             <div class="card">
               <div class="card-header d-flex align-items-center">
-                <h3 class="h4">Striped table with hover effect</h3>
+                <h3 class="h4">Daftar Pemesanan</h3>
               </div>
 
               <div class="card-body">

@@ -72,7 +72,8 @@
                       <div class="col-sm-9">
                         <?php 
                           $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'judul_dokumen', 'id' => 'judul_dokumen', 'value' => set_value('judul_dokumen')); 
-                          echo form_input($data);                                                      
+                          echo form_input($data); 
+                          echo form_error('judul_dokumen', '<p class="text-danger">', '</p>');                                                     
                         ?>    
                       </div>
                     </div>
@@ -83,7 +84,8 @@
                         <div class="custom-file mb-3">
                         <?php 
                           $data = array('type' => 'file', 'class' => 'form-control', 'name' => 'inputFile', 'id' => 'inputFile', 'value' => set_value('inputFile')); 
-                          echo form_input($data);                          
+                          echo form_input($data);      
+                          echo form_error('inputFile', '<p class="text-danger">', '</p>');                    
                         ?>    
                         </div>
                       </div>
@@ -102,13 +104,18 @@
                           <label class="label">Nama Penerima :</label>                          
                           <?php 
                             $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nama_penerima', 'id' => 'nama_penerima', 'value' => set_value('nama_penerima')); 
-                            echo form_input($data);                                                                              
+                            echo form_input($data); 
+                            echo form_error('nama_penerima', '<p class="text-danger">', '</p>');
                           ?>                        
                           <label class="checkbox-inline">
-                              <input id="boxnama" type="checkbox" value="0"> Samakan dengan nama Member
+                          <?php
+                            $data=array('type'=>'checkbox', 'id' => 'boxnama');
+                            echo form_input($data);
+                          ?>
+                            Samakan dengan nama Member
                           </label>
                         </div>
-                      </div>
+                      </div>                      
 
                       <div class="col-md-6">
                         <div class="form-group">
@@ -116,30 +123,50 @@
                             <?php 
                               $data = array('type' => 'text', 'class' => 'form-control', 'name' => 'nohape_penerima', 'id' => 'nohape_penerima', 'value' => set_value('nohape_penerima')); 
                               echo form_input($data);                              
-                            ?>  
+                              echo form_error('nohape_penerima', '<p class="text-danger">', '</p>');
+                            ?>
+                          <label class="checkbox-inline">
+                          <?php
+                            $data=array('type'=>'checkbox', 'id' => 'boxtelepon');
+                            echo form_input($data);
+                          ?>
+                            Samakan dengan No Handphone Member
+                          </label>  
                         </div>
                       </div>
                     </div> 
+
+                    <?php 
+                      $nama=$info["pm1_user_name"]; 
+                      $nohandphone=$info["pm1_user_phonenumber"]; 
+                    ?>
 
                     <div class="form-group row">
                           <label class="col-sm-3 form-control-label">Alamat Pengiriman : </label>
                             <div class="col-sm-9">
                             <?php
                             $data = array('class' => 'form-control', 'name' => 'alamat_penerima', 'rows' => 4, 'value' => set_value('alamat_penerima'));
-                            echo form_textarea($data);                            
+                            echo form_textarea($data);
+                            echo form_error('alamat_penerima', '<p class="text-danger">', '</p>');                            
                             ?>
                             <small>Misal: Perumahan Elok Permai Blok BC, RT/RW 03/09</small>
                           </div>
                           </div>                                           
 
                     <div class="row">
-                        <div class="col md-6">
+                        <div class="col md-4">
                           <div class="form-group">
-                            <?php echo form_reset('reset', 'Reset', array('class' => 'btn btn-danger form-control')); ?>  
+                            <a href="<?php echo base_url('history'); ?>" class="btn btn-danger form-control">Batal</a>  
                           </div>              
                         </div>
 
-                        <div class="col md-6">
+                        <div class="col md-4">
+                          <div class="form-group">
+                            <?php echo form_reset('reset', 'Reset', array('class' => 'btn btn-warning form-control')); ?>  
+                          </div>              
+                        </div>
+
+                        <div class="col md-4">
                           <div class="form-group">
                             <?php echo form_submit('submit', 'Next', array('class' => 'btn btn-primary form-control')); ?>
                           </div>                        
@@ -186,6 +213,38 @@
     $(document).ready(function() {
     $('#tabelriwayat').DataTable();
     } );
+  </script>
+
+  <script>
+  var namaku="<?php echo $nama ?>";
+  $("#boxnama").change(function(){
+    if($("#nama_penerima").val() == namaku)
+    {
+      $("#nama_penerima").val("");
+    }
+
+    else
+    {
+      $("#nama_penerima").val(namaku);
+    }
+  
+  });
+  </script>
+
+<script>
+  var nohape="<?php echo $nohandphone ?>";
+  $("#boxtelepon").change(function(){
+    if($("#nohape_penerima").val() == nohape)
+    {
+      $("#nohape_penerima").val("");
+    }
+
+    else
+    {
+      $("#nohape_penerima").val(nohape);
+    }
+  
+  });
   </script>
 
   </body>
