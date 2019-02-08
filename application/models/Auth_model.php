@@ -34,7 +34,7 @@ class Auth_model extends CI_Model{
 		$config['protocol'] = "smtp";
 		$config['smtp_host'] = "ssl://smtp.gmail.com";
 		$config['smtp_port'] = "465";
-		$config['smtp_user'] = "testingemailmahasiswa@gmail.com";
+		$config['smtp_user'] = "etestingmahasiswa@gmail.com";
 		$config['smtp_pass'] = "akusayangkamu123";
 		$config['charset'] = "utf-8";
 		$config['mailtype'] = "html";
