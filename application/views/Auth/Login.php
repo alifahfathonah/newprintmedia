@@ -49,7 +49,7 @@
                             </script>';
                     }
                     ?>
-                    <?php echo form_open('auth/proseslogin'); ?>
+                    <?php echo form_open('auth/proseslogin', array('autocomplete' => 'off')); ?>
                         <div class="form-group">
                             <label>Email</label>
                             <?php

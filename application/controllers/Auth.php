@@ -125,35 +125,6 @@ class Auth extends CI_Controller {
 							$this->session->set_userdata('akses', 'Member');
 							$this->session->set_userdata('email', $data['pm1_auth_email']);
 							$this->session->set_userdata('status', 'login');
-	
-							if ($this->agent->is_browser())
-							{
-								$agent = $this->agent->browser().' '.$this->agent->version();
-							}
-							elseif ($this->agent->is_robot())
-							{
-								$agent = $this->agent->robot();
-							}
-							elseif ($this->agent->is_mobile())
-							{
-								$agent = $this->agent->mobile();
-							}
-							else
-							{
-								$agent = 'Unidentified User Agent';
-							}
-	
-							date_default_timezone_set("Asia/Jakarta");
-							$data = array(
-								'pm0_loginregister_email' => $this->input->post('email'),
-								'pm0_loginregister_ip' => $this->input->ip_address(),
-								'pm0_loginregister_browser' => $agent,
-								'pm0_loginregister_platform' => $this->agent->platform(),
-								'pm0_loginregister_time' => date('Y-m-d h:i:s'),
-								'pm0_loginregister_information' => 'Login',
-								'pm0_loginregister_session' => session_id(),
-							);
-							$data = $this->Auth_model->Insert('pm0_loginregister', $data);
 							redirect(base_url('user/index'));
 						}
 						
@@ -188,7 +159,7 @@ class Auth extends CI_Controller {
 			}
 			else 
 			{
-				$this->session->set_flashdata('tidak_ada', 'Maaf!');
+				$this->session->set_flashdata('tidak_ada', 'Maaf! <br>Akun Tidak Ditemukan');
 				redirect(base_url('login'));
 			}
 		}		
@@ -277,5 +248,37 @@ class Auth extends CI_Controller {
 	public function loginmitra()
 	{
 		$this->load->view('Auth/loginmitra');
+	}
+
+	public function log_auth()
+	{
+		if ($this->agent->is_browser())
+		{
+			$agent = $this->agent->browser().' '.$this->agent->version();
+		}
+		elseif ($this->agent->is_robot())
+		{
+			$agent = $this->agent->robot();
+		}
+		elseif ($this->agent->is_mobile())
+		{
+			$agent = $this->agent->mobile();
+		}
+		else
+		{
+			$agent = 'Unidentified User Agent';
+		}
+
+		date_default_timezone_set("Asia/Jakarta");
+		$data = array(
+			'pm0_loginregister_email' => $this->input->post('email'),
+			'pm0_loginregister_ip' => $this->input->ip_address(),
+			'pm0_loginregister_browser' => $agent,
+			'pm0_loginregister_platform' => $this->agent->platform(),
+			'pm0_loginregister_time' => date('Y-m-d h:i:s'),
+			'pm0_loginregister_information' => 'Login',
+			'pm0_loginregister_session' => session_id(),
+		);
+		$data = $this->Auth_model->Insert('pm0_loginregister', $data);
 	}
 }
