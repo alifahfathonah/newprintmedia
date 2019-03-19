@@ -115,7 +115,7 @@ class Auth_model extends CI_Model{
 			'status' => 'Aktif',
         );
         
-        $query = $this->db->insert('auth', $data);
+        $query = $pthis->db->insert('auth', $data);
         return $query;
     }
 

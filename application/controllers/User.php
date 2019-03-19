@@ -205,9 +205,7 @@ class User extends CI_Controller
 		$cek=array('cek'=> $cek);
 		$this->load->view('user/upload2', $cek);
 	}
-
 	
-
 	public function inputdatapemesanan()
 	{
 		$this->User_model->inputPemesanan();

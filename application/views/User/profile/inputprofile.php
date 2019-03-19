@@ -152,10 +152,10 @@
                               <label class="label">Provinsi : </label>
                               <select name="provinsi" class="form-control" id="provinsi">
                                 <?php
-                                $this->db->from('pm2_provinces');
-                                $provinsi = $this->db->get();
-                                $data_provinsi = $provinsi->result_array();
-                                foreach($data_provinsi as $row) {
+                                  $this->db->from('pm2_provinces');
+                                  $provinsi = $this->db->get();
+                                  $data_provinsi = $provinsi->result_array();
+                                  foreach($data_provinsi as $row) {
                                 ?>
                                 <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
                                 <?php echo form_error('provinsi', '<p class="text-danger">', '</p>'); ?>
