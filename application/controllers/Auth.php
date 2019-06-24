@@ -199,11 +199,6 @@ class Auth extends CI_Controller {
 		}
 	}
 
-	public function lupaakun()
-	{
-		
-	}
-
 	// KHUSUS DEVELOPER
 	public function akuninstan()
 	{
@@ -282,5 +277,11 @@ class Auth extends CI_Controller {
 			'pm0_loginregister_session' => session_id(),
 		);
 		$data = $this->Auth_model->Insert('pm0_loginregister', $data);
+	}
+
+	public function logoutdev()
+	{
+		$this->session->sess_destroy();
+    	redirect(base_url('logindeveloper'));
 	}
 }

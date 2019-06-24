@@ -12,9 +12,15 @@ class Developer extends CI_Controller {
 	
 	public function index()
 	{	
-		$data=$this->Developer_model->tampiluser('pm0_loginregister');
-		$data=array('data'=> $data);
-		$this->load->view('Developer/index',$data);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$data=$this->Developer_model->tampiluser('pm0_loginregister');
+			$data=array('data'=> $data);
+			$this->load->view('Developer/index',$data);
+		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
+		
 	}
 
 	public function Inputdb_Univ()
@@ -77,100 +83,132 @@ class Developer extends CI_Controller {
 
 	public function Tampil_Univ()
 	{
-		$data=$this->Developer_model->tampiluniv('pm3_university');
-		$kota=$this->Developer_model->tampiluniv('pm2_regencies');
-		$data=array(
-			'univ'=> $data,
-			'kota'=>$kota
-		);
-		$this->load->view('Developer/Data_Univ',$data);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$data=$this->Developer_model->tampiluniv('pm3_university');
+			$kota=$this->Developer_model->tampiluniv('pm2_regencies');
+			$data=array(
+				'univ'=> $data,
+				'kota'=>$kota
+			);
+			$this->load->view('Developer/Data_Univ',$data);
+		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
+		
 	}
 
 	public function Tampil_Pemesanan()
 	{
-		$data=$this->Developer_model->tampiluniv('pm4_orders');
-		$data=array(
-			'data'=> $data
-		);
-		$this->load->view('Developer/Pemesanan',$data);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$data=$this->Developer_model->tampiluniv('pm4_orders');
+			$data=array(
+				'data'=> $data
+			);
+			$this->load->view('Developer/Pemesanan',$data);
+		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
 	}
 
 	public function Tampil_Jurusan()
 	{
-		$data=$this->Developer_model->tampiluniv('pm3_major');
-		$data=array('data'=> $data);
-		$this->load->view('Developer/Data_Jurusan',$data);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$data=$this->Developer_model->tampiluniv('pm3_major');
+			$data=array('data'=> $data);
+			$this->load->view('Developer/Data_Jurusan',$data);
+		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
+		
 	}
 	public function Tampil_User()
 	{
-		$data=$this->Developer_model->tampiluniv('pm1_user');
-		$data=array('data'=> $data);
-		$this->load->view('Developer/Data_User',$data);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$data=$this->Developer_model->tampiluniv('pm1_user');
+			$data=array('data'=> $data);
+			$this->load->view('Developer/Data_User',$data);
+		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
 	}
 
 	public function Hapus_Univ($id)
-		{
-			$where = array('pm3_university_id' => $id);
-			$data=$this->Developer_model->hapus('pm3_university',$where);
-			if($data){
-				echo json_encode(array("status" => TRUE));
-			}
-			else{
-				$this->session->set_flashdata('error_del_univ', 'GAGAL MENGHAPUS');
-				redirect(base_url('Developer/Tampil_Univ'));
-			}
+	{
+		$where = array('pm3_university_id' => $id);
+		$data=$this->Developer_model->hapus('pm3_university',$where);
+		if($data){
+			echo json_encode(array("status" => TRUE));
 		}
+		else{
+			$this->session->set_flashdata('error_del_univ', 'GAGAL MENGHAPUS');
+			redirect(base_url('Developer/Tampil_Univ'));
+		}
+	}
 
 	public function Hapus_Jurusan($id)
-		{
-			$where = array('pm3_major_id' => $id);
-			$data=$this->Developer_model->hapus('pm3_major',$where);
-			if($data){
-				echo json_encode(array("status" => TRUE));
-			}
-			else{
-				$this->session->set_flashdata('error_del_jurusan', 'GAGAL MENGHAPUS');
-				redirect(base_url('Developer/Tampil_Jurusan'));
-			}
+	{
+		$where = array('pm3_major_id' => $id);
+		$data=$this->Developer_model->hapus('pm3_major',$where);
+		if($data){
+			echo json_encode(array("status" => TRUE));
 		}
+		else{
+			$this->session->set_flashdata('error_del_jurusan', 'GAGAL MENGHAPUS');
+			redirect(base_url('Developer/Tampil_Jurusan'));
+		}
+	}
 
 	public function Hapus_User($email)
-		{
-			$where1 = array('pm1_user_email' => $email);
-			$where1 = array('pm1_auth_password' => $email);
-			$data=$this->Developer_model->hapus('pm1_auth',$where1);
-			$data1=$this->Developer_model->hapus('pm1_user',$where);
-			if($data){
-				if($data1){
-					$this->session->set_flashdata('success_del_user', 'BERHASIL MENGHAPUS');
-					redirect(base_url('Developer/Tampil_User'));
-				}
-				$this->session->set_flashdata('error_del_user', 'GAGAL MENGHAPUS');
+	{
+		$where1 = array('pm1_user_email' => $email);
+		$where1 = array('pm1_auth_password' => $email);
+		$data=$this->Developer_model->hapus('pm1_auth',$where1);
+		$data1=$this->Developer_model->hapus('pm1_user',$where);
+		if($data){
+			if($data1){
+				$this->session->set_flashdata('success_del_user', 'BERHASIL MENGHAPUS');
 				redirect(base_url('Developer/Tampil_User'));
 			}
-			else{
-				$this->session->set_flashdata('error_del_user', 'GAGAL MENGHAPUS');
-				redirect(base_url('Developer/Tampil_User'));
-			}
+			$this->session->set_flashdata('error_del_user', 'GAGAL MENGHAPUS');
+			redirect(base_url('Developer/Tampil_User'));
 		}
+		else{
+			$this->session->set_flashdata('error_del_user', 'GAGAL MENGHAPUS');
+			redirect(base_url('Developer/Tampil_User'));
+		}
+	}
 
 	public function Detail_User($id)
-		{
+	{
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
 			$id = array('pm1_user_id' => $id) ;
 			$cek = $this->Developer_model->detailuser('pm1_user', $id);
 			$cek=array('cek'=> $cek);
 			$this->load->view('Developer/detail_user', $cek);
-		
 		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
+	
+	}
 
 	public function Detail_Pemesanan($id)
-		{
+	{
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
 			$id = array('pm4_orders_id' => $id) ;
 			$cek = $this->Developer_model->detailuser('pm4_orders', $id);
 			$cek=array('cek'=> $cek);
 			$this->load->view('Developer/Detail_Pesanan', $cek);
-		
 		}
+		else{
+			redirect(base_url('logindeveloper'));
+		}
+	
+	}
 
 	public function Ubah_onproses($id)
 	{

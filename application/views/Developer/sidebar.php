@@ -47,12 +47,6 @@
                   <p>Tampilkan User</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Tambah User</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
