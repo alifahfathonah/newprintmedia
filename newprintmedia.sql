@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2019 at 06:09 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Jun 24, 2019 at 01:37 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,59 +39,6 @@ CREATE TABLE `pm0_loginregister` (
   `pm0_loginregister_session` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pm0_loginregister`
---
-
-INSERT INTO `pm0_loginregister` (`pm0_loginregister_id`, `pm0_loginregister_email`, `pm0_loginregister_ip`, `pm0_loginregister_browser`, `pm0_loginregister_platform`, `pm0_loginregister_time`, `pm0_loginregister_information`, `pm0_loginregister_session`) VALUES
-(1, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-08 03:33:16', 'Register', 'c16td69vuo8t84floj39f2lnqn0iv5gu'),
-(2, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-08 04:06:48', 'Login', 'aerl2lv7uu8qnhoi4abljqupeoshdsbu'),
-(3, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-08 04:08:40', 'Login', '6phreuhg3d016qnpg17k83cuhrdimshk'),
-(4, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 19:26:24', 'Login', 'u8rgnojd8ukdjafic8ktjsnqm6l1d955'),
-(5, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 19:28:12', 'Login', 'u8rgnojd8ukdjafic8ktjsnqm6l1d955'),
-(6, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 19:28:39', 'Login', 'u8rgnojd8ukdjafic8ktjsnqm6l1d955'),
-(7, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 19:30:21', 'Login', 'u8rgnojd8ukdjafic8ktjsnqm6l1d955'),
-(8, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 19:31:14', 'Login', 'u8rgnojd8ukdjafic8ktjsnqm6l1d955'),
-(9, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 20:33:10', 'Login', 'skvd6867gchefqasd9ppr4r706p9h7mo'),
-(10, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 20:38:54', 'Login', 'ck4i865j1se2k3tthkor7d1ggm6nuvli'),
-(11, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-09 20:44:32', 'Login', 'bp3itf0squjlc56j4t3itgvcjni3u5lt'),
-(12, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 01:01:30', 'Login', '38dngmemdlcod4drfcc0g1chafbhl5gb'),
-(13, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 01:05:27', 'Login', '11hl0vioue0ndmiqqh8nr6hp97kq4lju'),
-(14, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 01:06:39', 'Login', 'qfs19epmk3tpqjf1o04kcbbfk41nf812'),
-(15, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 01:07:49', 'Login', 'qfs19epmk3tpqjf1o04kcbbfk41nf812'),
-(16, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 00:17:38', 'Login', 'ihiulfpkaal0si19j58791bhniv8l9g9'),
-(17, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 00:24:41', 'Login', 'eod09t5nccfujaklsutcjb89j80rsh8a'),
-(18, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 00:37:54', 'Login', '8ta09m08p1piq64naton90ukos4s65e8'),
-(19, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-12 00:38:21', 'Login', '29cograd2j0oi3lfn1qt4ennaqc4cbfv'),
-(20, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-14 02:56:55', 'Login', '32m2fsn009kctv5949uj2v98t8aubb0o'),
-(21, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-14 02:58:41', 'Login', '62dqc9et0r8ss43bqgiuelg3qg9fbseq'),
-(22, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 70.0.3538.110', 'Windows 10', '2018-12-14 03:27:45', 'Login', 'u5j1ipb4g565m3vn9qeqvq0p0mrig06g'),
-(23, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-30 21:18:02', 'Login', 'a6qjjpgv87f19a775olgooluimn7ob7d'),
-(24, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-30 23:50:55', 'Login', '3cf5cdltmf1hvthl1gft5osjjrakqio8'),
-(25, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2018-12-31 03:13:29', 'Login', '3dm8qt3tvaatujqe4qkfdh38mvhharqm'),
-(26, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 02:16:43', 'Login', 'dv4ff9g328doisviq7k9u0r6bkvkibvu'),
-(27, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 01:09:58', 'Login', 'b5celrpgsvq47t72qr2mq8qtflbvl83d'),
-(28, '111201609358@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 01:13:15', 'Login', 'c8pja9uf2al19mrj8vb6u7138g006bmk'),
-(29, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-01 02:41:01', 'Register', '2f7vk21lktqfcjci27n5p2ibv2ssu8of'),
-(30, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 04:18:55', 'Register', 'a380ag9dcag3sebeitonflp8em5srqrc'),
-(31, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 18:40:00', 'Register', 'ob2qn3e4g633vn9tcqh8c156pj3sh1ol'),
-(32, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 19:48:59', 'Register', '3bo8fs4j356n3bp11cckqqmfcgv39ies'),
-(33, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 19:52:55', 'Register', '3bo8fs4j356n3bp11cckqqmfcgv39ies'),
-(34, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 19:55:05', 'Register', 'o82f6k9lhvtqdj3qtooi44ikn4rj9s45'),
-(35, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 20:11:14', 'Register', 'ukqtl523vtl1t1c773792v2sahpevjln'),
-(36, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 20:22:44', 'Login', 'ni8c8290edan4f37sb36rca6l7cldaqh'),
-(37, 'developer622224019@printmedia.co.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-04 21:27:04', 'Login', '7vcn8bdg6597t2141c0ioq63k4qb55to'),
-(38, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:14:41', 'Register', '06a86n73ol9hbh0tn9hkktkbbe8ahj7g'),
-(39, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:21:08', 'Register', 'p7akhsneacddnch1kh4sgdjd73029psn'),
-(40, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:23:19', 'Register', 'p7akhsneacddnch1kh4sgdjd73029psn'),
-(41, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:28:23', 'Register', 'gdp0v7rqjmc55tjrn7nnfbcuo5vkpqml'),
-(42, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:28:54', 'Register', 'gdp0v7rqjmc55tjrn7nnfbcuo5vkpqml'),
-(43, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:29:19', 'Register', 'gdp0v7rqjmc55tjrn7nnfbcuo5vkpqml'),
-(44, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:32:37', 'Register', 'ljoni1nss2vgdgmc4rpdv5p5ckl44jcn'),
-(45, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:36:55', 'Register', 'ljoni1nss2vgdgmc4rpdv5p5ckl44jcn'),
-(46, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:38:08', 'Register', '44i68fpg9srb2l89hs4ceauvkg5jhl4a'),
-(47, '111201609357@mhs.dinus.ac.id', '::1', 'Chrome 71.0.3578.98', 'Windows 10', '2019-01-05 04:38:52', 'Register', '44i68fpg9srb2l89hs4ceauvkg5jhl4a');
-
 -- --------------------------------------------------------
 
 --
@@ -109,15 +56,6 @@ CREATE TABLE `pm1_auth` (
   `pm1_auth_time` time NOT NULL,
   `pm1_auth_status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pm1_auth`
---
-
-INSERT INTO `pm1_auth` (`pm1_auth_id`, `pm1_auth_code`, `pm1_auth_email`, `pm1_auth_password`, `pm1_auth_level`, `pm1_auth_token`, `pm1_auth_date`, `pm1_auth_time`, `pm1_auth_status`) VALUES
-(22, 'eca982bd6df190e8536fab70830fe197', 'developer622224019@printmedia.co.id', '$2y$10$oAWT30pEixbOOTpKPZcVD.ZqZbiUlJ2uBPeoY7C6TnS/g.PwWDhiS', 1, 'd41d8cd98f00b204e9800998ecf8427ee3sl6vrw5VWRxtjp0OSKfaFhL8inMc7gdGIPTDBAk4XNoby1CHqEQJY29mUZzu', '2019-01-05', '16:26:57', 2),
-(23, 'ed51d495e5640ef0e3e434d7dcbea226', 'developer1888588307@printmedia.co.id', '$2y$10$Y8LDpx6Pbxhc8eU21RcOY.x6cTnYHnlamIz0rwz.bLHQr4Pm6DFkG', 1, 'd41d8cd98f00b204e9800998ecf8427eD8mMtBVg5YvQRxPSZGadI0zp7TNrF6nuL1wJUObhifC4ljEk9AWHcoy2s3eqKX', '2019-01-05', '16:28:52', 2),
-(33, '7c7e1797988849d045e4e087ab49c1bc', '111201609357@mhs.dinus.ac.id', '$2y$10$wvilkV5GHtTlSKvA4ZAQ5e0lKg/3Whvk8XrxX76X/Yp8ujWwc5R12', 2, '70eac08fb16df48e3c2d73ccca2dd5c2qHjsynmu5CD4M73Pd80bLkrpElIBwhVYgfUFoc6WNeZz2iAtKGvJXSQxa19RTO', '2019-01-05', '23:38:49', 2);
 
 -- --------------------------------------------------------
 
@@ -8049,8 +7987,7 @@ CREATE TABLE `pm3_level` (
 
 INSERT INTO `pm3_level` (`pm3_level_id`, `pm3_level_code`, `pm3_level_name`) VALUES
 (1, 1, 'Developer'),
-(2, 2, 'Member'),
-(3, 3, 'Mitra');
+(2, 2, 'Member');
 
 -- --------------------------------------------------------
 
@@ -8450,13 +8387,6 @@ CREATE TABLE `pm4_orders` (
   `pm4_orders_status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `pm4_orders`
---
-
-INSERT INTO `pm4_orders` (`pm4_orders_id`, `pm4_orders_document_title`, `pm4_orders_filename`, `pm4_orders_pagenumber`, `pm4_orders_sender_email`, `pm4_orders_receiver_name`, `pm4_orders_receiver_phonenumber`, `pm4_orders_receiver_address`, `pm4_orders_paper`, `pm4_orders_color`, `pm4_orders_cost`, `pm4_orders_status`) VALUES
-(1, 'Abdul Somad', 'a.pdf', 2100, '111201609358@mhs.dinus.ac.id', 'Gua', '0812345678', 'asdsadsadsadasdsadsa', 'A4 HVS - 80gr', 'Hitam - Putih', '2100', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -8593,19 +8523,19 @@ ALTER TABLE `pm4_temporders`
 -- AUTO_INCREMENT for table `pm0_loginregister`
 --
 ALTER TABLE `pm0_loginregister`
-  MODIFY `pm0_loginregister_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `pm0_loginregister_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pm1_auth`
 --
 ALTER TABLE `pm1_auth`
-  MODIFY `pm1_auth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `pm1_auth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `pm1_user`
 --
 ALTER TABLE `pm1_user`
-  MODIFY `pm1_user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pm1_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pm3_authstatus`
@@ -8653,7 +8583,7 @@ ALTER TABLE `pm3_university`
 -- AUTO_INCREMENT for table `pm4_orders`
 --
 ALTER TABLE `pm4_orders`
-  MODIFY `pm4_orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pm4_orders_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pm4_temporders`
