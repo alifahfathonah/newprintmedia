@@ -147,7 +147,7 @@ class User extends CI_Controller
 	{
 		// Set Aturan
 		$this->form_validation->set_rules('judul_dokumen', 'Judul Dokumen', 'trim|required');
-		$this->form_validation->set_rules('inputFile', 'File', 'trim|required|xss_clean');	
+		// $this->form_validation->set_rules('inputFile', 'File', 'trim|required|xss_clean');	
 		$this->form_validation->set_rules('nama_penerima', 'Nama', 'trim|required|xss_clean');	
 		$this->form_validation->set_rules('nohape_penerima', 'Nomor Handphone', 'trim|required|numeric|xss_clean|min_length[10]|max_length[13]');	
 		$this->form_validation->set_rules('alamat_penerima', 'Alamat', 'trim|required|xss_clean');		

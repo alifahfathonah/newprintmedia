@@ -80,7 +80,7 @@ class Developer extends CI_Controller {
 		$data=$this->Developer_model->tampiluniv('pm3_university');
 		$kota=$this->Developer_model->tampiluniv('pm2_regencies');
 		$data=array(
-			'data'=> $data,
+			'univ'=> $data,
 			'kota'=>$kota
 		);
 		$this->load->view('Developer/Data_Univ',$data);

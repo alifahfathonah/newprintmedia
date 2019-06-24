@@ -57,7 +57,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($data as $info) {?>
+                <?php foreach ($univ as $info) {?>
                 <tr>
                   <td><?php echo $info['pm3_university_id'];?></td>
                   <td><?php echo $info['pm3_university_name'];?></td>
