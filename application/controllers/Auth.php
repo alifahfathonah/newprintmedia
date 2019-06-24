@@ -124,7 +124,7 @@ class Auth extends CI_Controller {
 						{
 							$this->session->set_userdata('akses', 'Member');
 							$this->session->set_userdata('email', $data['pm1_auth_email']);
-							$this->session->set_userdata('status', 'login');
+							$this->session->set_userdata('status', 'login');							
 							redirect(base_url('user/index'));
 						}
 						

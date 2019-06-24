@@ -148,13 +148,18 @@
                     </div>
 
                     <div class="row">
-                        <div class="col md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
-                            <?php echo form_reset('reset', 'Reset', array('class' => 'btn btn-danger form-control')); ?>  
+                            <a class="btn btn-danger form-control" href="<?php echo base_url('user/batalpesanan'); ?>">Batal</a>
+                          </div>              
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <?php echo form_reset('reset', 'Reset', array('class' => 'btn btn-warning form-control')); ?>  
                           </div>              
                         </div>
 
-                        <div class="col md-6">
+                        <div class="col-md-4">
                           <div class="form-group">
                             <?php echo form_submit('submit', 'Pesan Sekarang', array('class' => 'btn btn-primary form-control')); ?>
                           </div>                        

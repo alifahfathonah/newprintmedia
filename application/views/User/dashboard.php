@@ -11,6 +11,17 @@
 
   <body>
     <div class="page">
+    <?php if($this->session->flashdata('login')):?>
+        <script src="<?php echo base_url();?>asset/user/plugin/sweetalert/dist/sweetalert2.all.min.js"></script>
+        <script>
+          swal({
+              title: "Selamat Datang",
+              text: "Semoga Hari Anda Menyenangkan",              
+              showConfirmButton: true,
+              type: 'success'
+              });
+        </script>
+    <?php endif;?>
 
       <!-- Awal Navbar-->  
         <?php $this->load->view('user/include/navbar'); ?>

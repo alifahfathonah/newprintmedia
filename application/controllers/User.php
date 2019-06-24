@@ -25,6 +25,7 @@ class User extends CI_Controller
 			else
 			{
 				$this->session->set_userdata('username', $cek['pm1_user_name']);
+				$this->session->set_flashdata('login', 'Selamat Datang!');
 				$this->load->view('user/dashboard');
 			}
 		}
@@ -61,13 +62,15 @@ class User extends CI_Controller
 
 	public function inputprofile()
 	{
-		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member')
+		{
 			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
 			$cek = $this->User_model->GetWhere('pm1_user', $email);
 			$cek = $cek->row_array();
 			$this->load->view('user/profile/inputprofile');
 		}
-		else{
+		else
+		{
 			redirect(base_url('login'));
 		}
 	}
@@ -165,11 +168,20 @@ class User extends CI_Controller
 	// Bagian Pemesanan
 	public function upload()
 	{
-		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
-			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-			$cek = $this->User_model->tampilProfile('pm1_user', $email);
-			$cek=array('cek'=> $cek);
-			$this->load->view('user/upload', $cek);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member')
+		{
+			$cekOrderan = $this->User_model->checkUpload($this->session->userdata('email'));
+			if($cekOrderan -> num_rows() > 0)
+			{
+				redirect(base_url('User/upload2'));
+			}
+			else 
+			{				
+				$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+				$cek = $this->User_model->tampilProfile('pm1_user', $email);
+				$cek=array('cek'=> $cek);
+				$this->load->view('user/upload', $cek);			
+			}			
 		}
 		else{
 			redirect(base_url('login'));
@@ -244,6 +256,20 @@ class User extends CI_Controller
 		$this->db->delete('pm4_temporders', array('pm4_temporders_sender_email' => $this->session->userdata('email') )); 
 		$this->session->set_flashdata('success_order', 'Berhasil Memesan');
 		redirect(base_url('user/history'));
+	}
+
+	public function batalPesanan()
+	{
+		if($this->User_model->cancelOrder($this->session->userdata('email')))
+		{
+			$this->session->set_flashdata('success', 'Berhasil membatalkan pemesanan');
+			redirect(base_url('user/history'));
+		}
+		else 
+		{
+			$this->session->set_flashdata('error', 'Gagal membatalkan pemesanan');
+			redirect(base_url('User/upload2'));
+		}
 	}
 
 	// Bagian Alamat

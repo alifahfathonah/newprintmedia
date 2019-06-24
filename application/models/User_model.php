@@ -122,6 +122,32 @@ class User_model extends CI_Model{
         return $res;        
     }
 
+    public function checkUpload($email)
+    {
+        $this->db->where('pm4_temporders_sender_email',$email);
+        return $this->db->get('pm4_temporders');
+    }
+
+    public function namafile($email)
+    {
+        $this->db->select('pm4_temporders_filename');
+        $this->db->from('pm4_temporders');
+        $this->db->where('pm4_temporders_sender_email',$email);
+        return $this->db->get()->row_array();
+    }
+
+    public function cancelOrder($email)
+    {
+        $nama = $this->User_model->namafile($email);
+        $link='./asset/user/pemesanan/'.$nama['pm4_temporders_filename'];                      
+        if(file_exists($link) && unlink($link))
+        {
+            $this->db->where('pm4_temporders_sender_email',$email);
+            $this->db->from('pm4_temporders');
+            return $this->db->delete();        
+        }           
+    }
+
 
     // Model Umum
     public function GetWhere($table, $data)

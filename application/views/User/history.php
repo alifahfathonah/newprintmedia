@@ -34,6 +34,33 @@
               });
         </script>
         <?php endif;?>
+        <!--Sweet Alert  -->
+      <?php
+      echo '<script src="'.base_url('asset/').'user/plugin/sweetalert/dist/sweetalert2.all.min.js"></script>';
+      if($this->session->flashdata('success'))
+      {
+         echo '<script>';
+         echo 'swal({
+               title: "Done",
+               text: "'.$this->session->flashdata('success').'",              
+               showConfirmButton: true,
+               type: "success"
+               });
+               </script>';
+      }
+      if($this->session->flashdata('error'))
+      {
+         echo '<script>';
+         echo 'swal({
+               title: "Failed",
+               text: "'.$this->session->flashdata('error').'",              
+               showConfirmButton: true,
+               type: "error"
+               });
+               </script>';
+      }
+      ?>
+      <!-- End Sweet Alert -->
 
           <!-- Page Header-->
           <header class="page-header">
