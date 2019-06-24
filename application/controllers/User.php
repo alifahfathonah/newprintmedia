@@ -13,18 +13,23 @@ class User extends CI_Controller
 	
 	public function index()
 	{
-		$email = $this->session->userdata('email');
-		$cek = $this->User_model->cekUser($email);
-		$cek = $cek->row_array();
-		
-		if($cek == NULL)
-		{
-			redirect(base_url('profile'));
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
+			$email = $this->session->userdata('email');
+			$cek = $this->User_model->cekUser($email);
+			$cek = $cek->row_array();
+			
+			if($cek == NULL)
+			{
+				redirect(base_url('profile'));
+			}
+			else
+			{
+				$this->session->set_userdata('username', $cek['pm1_user_name']);
+				$this->load->view('user/dashboard');
+			}
 		}
-		else
-		{
-			$this->session->set_userdata('username', $cek['pm1_user_name']);
-			$this->load->view('user/dashboard');
+		else{
+			redirect(base_url('login'));
 		}
 	}
 
@@ -32,24 +37,39 @@ class User extends CI_Controller
 	// Bagian Dashboard
 	public function dashboard()
 	{
-		$this->load->view('user/dashboard');
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
+			$this->load->view('user/dashboard');
+		}
+		else{
+			redirect(base_url('login'));
+		}
 	}
 
 	// Bagian Profile Member
 	public function myprofile()
-	{	
-		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('pm1_user', $email);
-		$cek=array('cek'=> $cek);
-		$this->load->view('user/profile/myprofile', $cek);			
+	{
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->tampilProfile('pm1_user', $email);
+			$cek=array('cek'=> $cek);
+			$this->load->view('user/profile/myprofile', $cek);	
+		}
+		else{
+			redirect(base_url('login'));
+		}		
 	}
 
 	public function inputprofile()
 	{
-		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->GetWhere('pm1_user', $email);
-		$cek = $cek->row_array();
-		$this->load->view('user/profile/inputprofile');
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->GetWhere('pm1_user', $email);
+			$cek = $cek->row_array();
+			$this->load->view('user/profile/inputprofile');
+		}
+		else{
+			redirect(base_url('login'));
+		}
 	}
 
 	public function inputdataprofile()
@@ -85,10 +105,15 @@ class User extends CI_Controller
 
 	public function editprofile()
 	{
-		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('pm1_user', $email);
-		$cek=array('cek'=> $cek);
-		$this->load->view('user/profile/editprofile', $cek);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
+			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->tampilProfile('pm1_user', $email);
+			$cek=array('cek'=> $cek);
+			$this->load->view('user/profile/editprofile', $cek);
+		}
+		else{
+			redirect(base_url('login'));
+		}
 	}
 
 	public function updatedataprofile()
@@ -124,30 +149,37 @@ class User extends CI_Controller
 		}			
 	}
 
-	
-
 	public function history()
 	{	
-		$email = array('pm4_orders_sender_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('pm4_orders', $email);
-		$cek=array('cek'=> $cek);
-		$this->load->view('user/history', $cek);			
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
+			$email = array('pm4_orders_sender_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->tampilProfile('pm4_orders', $email);
+			$cek=array('cek'=> $cek);
+			$this->load->view('user/history', $cek);		
+		}
+		else{
+			redirect(base_url('login'));
+		}	
 	}
 
 	// Bagian Pemesanan
 	public function upload()
 	{
-		$email = array('pm1_user_email' => $this->session->userdata('email')) ;
-		$cek = $this->User_model->tampilProfile('pm1_user', $email);
-		$cek=array('cek'=> $cek);
-		$this->load->view('user/upload', $cek);
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
+			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
+			$cek = $this->User_model->tampilProfile('pm1_user', $email);
+			$cek=array('cek'=> $cek);
+			$this->load->view('user/upload', $cek);
+		}
+		else{
+			redirect(base_url('login'));
+		}
 	}
 
 	public function hitunghalaman()
 	{
 		// Set Aturan
-		$this->form_validation->set_rules('judul_dokumen', 'Judul Dokumen', 'trim|required');
-		// $this->form_validation->set_rules('inputFile', 'File', 'trim|required|xss_clean');	
+		$this->form_validation->set_rules('judul_dokumen', 'Judul Dokumen', 'trim|required');	
 		$this->form_validation->set_rules('nama_penerima', 'Nama', 'trim|required|xss_clean');	
 		$this->form_validation->set_rules('nohape_penerima', 'Nomor Handphone', 'trim|required|numeric|xss_clean|min_length[10]|max_length[13]');	
 		$this->form_validation->set_rules('alamat_penerima', 'Alamat', 'trim|required|xss_clean');		
