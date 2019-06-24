@@ -130,10 +130,8 @@ class Auth extends CI_Controller {
 						
 						if($data['pm1_auth_level'] === "1")
 						{
-							$this->session->set_userdata('akses', 'Admin');
-							$this->session->set_userdata('email', $data['pm1_auth_email']);
-							$this->session->set_userdata('status', 'login');
-							redirect(base_url('Developer/index'));
+							$this->session->set_flashdata('error', 'Gagal Login!');
+							redirect(base_url('login'));
 						}
 						
 						if($data['pm1_auth_level'] === "3")

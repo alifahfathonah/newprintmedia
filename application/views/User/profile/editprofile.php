@@ -89,7 +89,7 @@
                             <div class="form-group">
                               <label class="label">Jenis Kelamin : </label>
                               <?php
-                                $data = array('Laki - Laki' => 'Laki-Laki', 'Perempuan' => 'Perempuan');
+                                $data = array('Laki-Laki' => 'Laki-Laki', 'Perempuan' => 'Perempuan');
                                 echo form_dropdown('jenis_kelamin', $data, set_value('jenis_kelamin'), ['class' => 'form-control', 'value' => $info['pm1_user_gender']]);
                               ?>                          
                             </div>
@@ -172,7 +172,14 @@
                               <label class="label">Kota/Kabupaten : </label>
                               <div class="select">
                                 <select name="kota" class="form-control" id="kota">
-                                  <option value="" ></option>
+                                <?php                                                          
+                                $this->db->from('pm2_regencies');                
+                                $kota = $this->db->get();
+                                $data_kota = $kota->result_array();
+                                foreach($data_kota as $row) {
+                                ?>
+                                <option value="<?php echo $row['id']; ?>" <?php echo set_select('id', $row['id'], ($row['id'] == $info['pm1_user_province'])? true : false ); ?>><?php echo $row['name']; ?></option>
+                                <?php } ?>     
                                 </select>
                               </div>
                             </div>

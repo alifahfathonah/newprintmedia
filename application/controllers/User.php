@@ -48,7 +48,7 @@ class User extends CI_Controller
 	// Bagian Profile Member
 	public function myprofile()
 	{
-		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
 			$email = array('pm1_user_email' => $this->session->userdata('email')) ;
 			$cek = $this->User_model->tampilProfile('pm1_user', $email);
 			$cek=array('cek'=> $cek);

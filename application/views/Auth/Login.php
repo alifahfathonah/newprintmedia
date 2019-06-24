@@ -48,6 +48,16 @@
                                 })
                             </script>';
                     }
+                    if($this->session->flashdata('password_salah'))
+                    {
+                        echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
+                        echo '<script>
+                                Swal({
+                                    type: "error",
+                                    title: "'.$this->session->flashdata('password_salah').'",
+                                })
+                            </script>';
+                    }
                     ?>
                     <?php echo form_open('auth/proseslogin', array('autocomplete' => 'off')); ?>
                         <div class="form-group">

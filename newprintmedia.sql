@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2019 at 01:37 PM
+-- Generation Time: Jun 24, 2019 at 03:46 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.14
 
@@ -39,6 +39,19 @@ CREATE TABLE `pm0_loginregister` (
   `pm0_loginregister_session` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pm0_loginregister`
+--
+
+INSERT INTO `pm0_loginregister` (`pm0_loginregister_id`, `pm0_loginregister_email`, `pm0_loginregister_ip`, `pm0_loginregister_browser`, `pm0_loginregister_platform`, `pm0_loginregister_time`, `pm0_loginregister_information`, `pm0_loginregister_session`) VALUES
+(1, '111201609356@mhs.dinus.ac.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-23 23:53:24', 'Register', '0aif844j1ht4i2bf3rfl8v4m2410kbta'),
+(2, '111201609356@mhs.dinus.ac.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-23 23:56:08', 'Register', '0aif844j1ht4i2bf3rfl8v4m2410kbta'),
+(3, '111201609356@mhs.dinus.ac.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-24 00:02:38', 'Register', '9t2s88p3eb6giduvr1in2kjabilu6ki8'),
+(4, 'developer97739662@printmedia.co.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-24 00:56:28', 'Login', 'f580ggdalogkv21tupeg5963tq2bikbq'),
+(5, 'developer97739662@printmedia.co.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-24 00:58:50', 'Login', 'f580ggdalogkv21tupeg5963tq2bikbq'),
+(6, 'developer97739662@printmedia.co.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-24 01:12:02', 'Login', 'ha7jec58u0pqvrlao8uvlpvt314k2dj5'),
+(7, 'developer97739662@printmedia.co.id', '::1', 'Chrome 75.0.3770.100', 'Windows 10', '2019-06-24 01:14:23', 'Login', 'toqjas8iogv5uo10akemnnim2hids3dr');
+
 -- --------------------------------------------------------
 
 --
@@ -57,6 +70,14 @@ CREATE TABLE `pm1_auth` (
   `pm1_auth_status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pm1_auth`
+--
+
+INSERT INTO `pm1_auth` (`pm1_auth_id`, `pm1_auth_code`, `pm1_auth_email`, `pm1_auth_password`, `pm1_auth_level`, `pm1_auth_token`, `pm1_auth_date`, `pm1_auth_time`, `pm1_auth_status`) VALUES
+(38, '856ebe849b25ec165dadac0842684760', '111201609356@mhs.dinus.ac.id', '$2y$10$ar.v3EMZ19uX4OmNy5ODe.IJC5/Xns7Et38/zcIK67wVaePLtgcUK', 2, '8c7cb251509dd49f078b5c4772c6ab2cEDoK2xhIHXUFnAuRLTzjwcaqBGQ3el6JYigtOZS4pNVmr7fb1WvM859CdyPks0', '2019-06-24', '19:02:35', 2),
+(39, '82b4bf0f176469bcc6e0549293916a1a', 'developer97739662@printmedia.co.id', '$2y$10$3EjGy.UlYPd89uZBG.tXpuze/3YOBUx4tU/NmaG8zNCukWD9uniDu', 1, 'd41d8cd98f00b204e9800998ecf8427eu5PRhL7gbmfUMBCXeDyknGoZd1pzrSYsF2iwlN6tAWa9q3I0JxE8vQc4HTOVjK', '2019-06-24', '19:55:59', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -67,7 +88,7 @@ CREATE TABLE `pm1_user` (
   `pm1_user_id` int(11) NOT NULL,
   `pm1_user_name` varchar(50) NOT NULL,
   `pm1_user_phonenumber` varchar(13) NOT NULL,
-  `pm1_user_gender` enum('1','2') NOT NULL,
+  `pm1_user_gender` enum('Laki-Laki','Perempuan') NOT NULL,
   `pm1_user_birthdate` date NOT NULL,
   `pm1_user_email` varchar(50) NOT NULL,
   `pm1_user_address` text NOT NULL,
@@ -82,6 +103,13 @@ CREATE TABLE `pm1_user` (
   `pm1_user_in` int(2) NOT NULL,
   `pm1_user_out` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pm1_user`
+--
+
+INSERT INTO `pm1_user` (`pm1_user_id`, `pm1_user_name`, `pm1_user_phonenumber`, `pm1_user_gender`, `pm1_user_birthdate`, `pm1_user_email`, `pm1_user_address`, `pm1_user_detailaddress`, `pm1_user_province`, `pm1_user_regency`, `pm1_user_district`, `pm1_user_poscode`, `pm1_user_university`, `pm1_user_major`, `pm1_user_degree`, `pm1_user_in`, `pm1_user_out`) VALUES
+(2, 'Abdiel Reyhan', '082134710610', 'Laki-Laki', '1998-02-23', '111201609356@mhs.dinus.ac.id', 'Wonomulyo Mukti barat 2 nomor 97', 'Perum Graha Mukti Utama', '33', '1671', '1671060', '50192', 5, 131, 7, 3, 11);
 
 -- --------------------------------------------------------
 
@@ -8523,19 +8551,19 @@ ALTER TABLE `pm4_temporders`
 -- AUTO_INCREMENT for table `pm0_loginregister`
 --
 ALTER TABLE `pm0_loginregister`
-  MODIFY `pm0_loginregister_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `pm0_loginregister_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pm1_auth`
 --
 ALTER TABLE `pm1_auth`
-  MODIFY `pm1_auth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `pm1_auth_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `pm1_user`
 --
 ALTER TABLE `pm1_user`
-  MODIFY `pm1_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `pm1_user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pm3_authstatus`
