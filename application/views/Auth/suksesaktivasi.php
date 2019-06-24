@@ -1,41 +1,44 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
-<title>Print Media | Solusi Percetakan Masa Kini</title>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Material Design for Bootstrap CSS -->
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/home/css/bootstrap.min.css">
-<link rel="stylesheet" href="<?php echo base_url(); ?>asset/home/css/style.css">
-
-
-<!-- Material Design for Bootstrap fonts and icons -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-
+    <title>PrintMedia Percetakan Online di Indonesia Kelas Mahasiswa</title>
+    <?php $this->load->view('Home/include/css'); ?>
 </head>
 <body>
-<div id="navbar">
-    <?php $this->load->view('home/inc/header'); ?>
+
+<div id="header">
+    <?php $this->load->view('Home/include/header'); ?>
 </div>
 
-<section class="section section-sukses" id="mulai">
+<div id="auth">
     <div class="container">
-        <div class="jumbotron text-white">
-            <h1 class="display-4">Akun Anda Aktif!</h1>
-            <p class="lead">
-                Terima kasih <b><?php echo $view[0]['pm1_auth_email']; ?></b> telah melakukan aktivasi.<br> Silahkan <a href="<?php echo base_url('login'); ?>" class="text-dark">LOGIN!</a>
-            </p>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                <section class="section section-sukses" id="mulai">
+                    <div class="container">
+                        <div class="jumbotron text-black">
+                            <h1 class="display-4">Akun Anda Aktif!</h1>
+                            <p class="lead">
+                                Terima kasih <b><?php echo $view[0]['pm1_auth_email']; ?></b> telah melakukan aktivasi.<br> Silahkan <a class="btn btn-primary" href="<?php echo base_url('login'); ?>" class="text-dark">LOGIN!</a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="auth-footer">
+            <div class="garis"></div>
+            <p>© <?php echo date('Y'); ?> - PT Print Media | Time: {elapsed_time} | {memory_usage} </p>
         </div>
     </div>
-</section>
+</div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"  crossorigin="anonymous"></script>
-<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"  crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"  crossorigin="anonymous"></script>
-<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+<!-- JavaScript -->
+<?php $this->load->view('Home/include/js'); ?>
 
 </body>
 </html>

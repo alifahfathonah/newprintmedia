@@ -28,6 +28,16 @@
                                 })
                             </script>';
                     }
+                    if($this->session->flashdata('sukses'))
+                    {
+                        echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
+                        echo '<script>
+                                Swal({
+                                    type: "success",
+                                    title: "'.$this->session->flashdata('sukses').'",
+                                })
+                            </script>';
+                    }
                     if($this->session->flashdata('belum_aktif'))
                     {
                         echo '<script src="'.base_url('asset/home/js/sweetalert2.min.js').'"></script>';
