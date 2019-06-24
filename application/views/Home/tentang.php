@@ -17,7 +17,7 @@
 <body id="body-tentang">
 
 <div id="navbar">
-    <?php $this->load->view('home/inc/header'); ?>
+    <?php $this->load->view('home/include/header'); ?>
 </div>
 
 <section class="section section-tentang-banner" id="mulai">
@@ -109,7 +109,7 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view('home/inc/footer'); ?>
+        <?php $this->load->view('home/include/footer'); ?>
     </div>
 </section>
 

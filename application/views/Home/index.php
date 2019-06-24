@@ -14,9 +14,9 @@
     <div class="container">
         <h2>PrintMedia</h2>
         <p>Cari lokasi tempat percetakan atau nama percetakan. Cepat dan Mudah!</p>
-        <form action="" method="post">
+        <!-- <form action="" method="post">
             <input type="search" class="search form-control mr-sm-2" name="search" placeholder="Cari Lokasi Percetakan...">
-        </form>
+        </form> -->
     </div>
 </div>
 
@@ -82,70 +82,17 @@
         <div class="row">
             <div class="col-lg-10 col-md-6 col-sm-12">
                 <div class="default-custom">
-                    <h3>GABUNG MENJADI MITRA KAMI</h3>
+                    <h3>GABUNG MENJADI PENGGUNA KAMI</h3>
                 </div>
-                <p>If you are interested in joining or using our services interested in joining or using our services. If you are interested in joining or using our services interested in joining or using our services. Please contact us.</p>
+                <p>Jika anda tertarik menjadi bagian dari pengguna kami, silahkan tekan tombol disamping.</p>
             </div>
             <div class="col-lg-2 col-md-6 col-sm-12">
-                <a href="" class="btn btn-block btn-success btn-mitra">HUBUNGI KAMI</a>
+                <a href="<?php echo base_url('register'); ?>" class="btn btn-block btn-success btn-mitra">HUBUNGI KAMI</a>
             </div>
         </div>
     </div>
 </div>
 
-<div id="blog" class="default-div">
-    <div class="container">
-        <div class="default-heading">
-            <h3>BLOG</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <a href="<?php echo base_url('/'); ?>">
-                    <div class="card">
-                        <img src="<?php echo base_url('asset/home/img/layanan1.jpg'); ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <a href="<?php echo base_url('/'); ?>" class="badge badge-sm badge-warning">Kategori</a>
-                            <h4 class="card-title">Ini Judul Loh</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <a href="<?php echo base_url('/'); ?>">
-                    <div class="card">
-                        <img src="<?php echo base_url('asset/home/img/layanan1.jpg'); ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <a href="<?php echo base_url('/'); ?>" class="badge badge-sm badge-warning">Kategori</a>
-                            <h4 class="card-title">Ini Judul Loh</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <a href="<?php echo base_url('/'); ?>">
-                    <div class="card">
-                        <img src="<?php echo base_url('asset/home/img/layanan1.jpg'); ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <a href="<?php echo base_url('/'); ?>" class="badge badge-sm badge-warning">Kategori</a>
-                            <h4 class="card-title">Ini Judul Loh</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <a href="<?php echo base_url('/'); ?>">
-                    <div class="card">
-                        <img src="<?php echo base_url('asset/home/img/layanan1.jpg'); ?>" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <a href="<?php echo base_url('/'); ?>" class="badge badge-sm badge-warning">Kategori</a>
-                            <h4 class="card-title">Ini Judul Loh</h4>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div id="footer">
     <?php $this->load->view('Home/include/footer'); ?>
