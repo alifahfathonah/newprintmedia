@@ -225,6 +225,15 @@ class Developer extends CI_Controller {
 		$cek = $this->Developer_model->updateStatus('pm4_orders',$id, $isi);
 		redirect(base_url('Developer/Tampil_Pemesanan'));
 	}
+
+	public function Ubah_deliver($id)
+	{
+		$id = array('pm4_orders_id' => $id) ;
+		$isi=array('pm4_orders_status'=>'4');
+		$cek = $this->Developer_model->updateStatus('pm4_orders',$id, $isi);
+		redirect(base_url('Developer/Tampil_Pemesanan'));
+	}
+
 	public function Do_Download($namefile)
 	{
 		$newfile='./asset/user/pemesanan/'.$namefile;
