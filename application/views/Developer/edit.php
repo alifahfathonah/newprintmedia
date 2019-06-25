@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Daftar Jurusan</h1>
+            <h1 class="m-0 text-dark">Edit User</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -41,7 +41,7 @@
         <div class="col-12">
         <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Jurusan</h3>
+              <h3 class="card-title">Data User</h3>
             </div>
             <!-- /.card-header -->
             <?php if($this->session->flashdata('success_del_user')){?>
@@ -70,45 +70,36 @@
                     ?>
             <?php } ?>
             <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Nomor</th>
-                  <th>Nama</th>
-                  <th>Gender</th>
-                  <th>No.HP</th>
-                  <th>Email</th>
-                  <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php $no=1;?>
-                <?php foreach ($data as $info) {?>
-                <tr>
-                  <td><?php echo $no;?></td>
-                  <td><?php echo $info['pm1_user_name'];?></td>
-                  <td><?php echo $info['pm1_user_gender'];?></td>
-                  <td><?php echo $info['pm1_user_phonenumber'];?></td>
-                  <td><?php echo $info['pm1_user_email'];?></td>
-                  <td>
-                    <a  class="fa fa-eye" href="<?php echo base_url();?>Developer/Detail_User/<?php echo $info['pm1_user_id'];?>" title="Detail"></a>
-                    <a  class="fa fa-edit" href="<?php echo base_url();?>Developer/ambildata/<?php echo $info['pm1_user_id'];?>" title="Detail"></a>
-                    <a  class="fa fa-times" onClick="return confirm('Are you sure you want to delete this item?');" href="<?php echo base_url();?>Developer/Hapus_User/<?php echo $info['pm1_user_email'];?>" title="Delete"></a>
-                  </td>
-                </tr>
-                <?php } ?>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Nomor</th>
-                  <th>Nama</th>
-                  <th>Gender</th>
-                  <th>No.HP</th>
-                  <th>Email</th>
-                  <th>Action</th>
-                </tr>
-                </tfoot>
-              </table>
+            <!-- <form role="form" method="post"> -->
+            <?php foreach($cek as $data){ ?>
+            <?php echo form_open('Developer/prosesedituser', array('enctype' => 'multipart/form-data','id' => 'submit', 'class' => 'form-horizontal')); ?>
+                <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">User Id</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="id" value="<?php echo $data['pm1_user_id']; ?>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nama</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="nama" value="<?php echo $data['pm1_user_name']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Nomor Handphone</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="no_handphone" value="<?php echo $data['pm1_user_phonenumber']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Alamat</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="detail_alamat" value="<?php echo $data['pm1_user_address']; ?>">
+                  </div>
+                  
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              <!-- </form> -->
+              <?php echo form_close(); ?>  
+            <?php }?> 
             </div>
             <!-- /.card-body -->
           </div>

@@ -239,5 +239,31 @@ class Developer extends CI_Controller {
 		$newfile='./asset/user/pemesanan/'.$namefile;
 		force_download($newfile,NULL);
 	}
+
+	public function ambildata($id)
+	{
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Developer'){
+			$id = array('pm1_user_id' => $id) ;
+			$cek = $this->Developer_model->detailuser('pm1_user', $id);
+			$cek=array('cek'=> $cek);
+			$this->load->view('developer/edit',$cek);
+		}
+		else{
+			redirect(base_url('login'));
+		}
+	}
+
+	public function prosesedituser()
+	{
+		$id=array('pm1_user_id'=>$this->input->post('id'));
+
+		$isi=array(
+			'pm1_user_name'=>$this->input->post('nama'),
+			'pm1_user_phonenumber'=>$this->input->post('no_handphone'),
+			'pm1_user_address'=>$this->input->post('detail_alamat')
+		);
+		$cek = $this->Developer_model->updateStatus('pm1_user',$id, $isi);
+		redirect(base_url('Developer/Tampil_User'));
+	}
 }
 ?>
