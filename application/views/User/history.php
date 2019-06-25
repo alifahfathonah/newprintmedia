@@ -112,7 +112,7 @@
                                 <?php } if ($info['pm4_orders_status']=='3') { ?>
                                     Pesanan Dalam Pengiriman
                                 <?php } if ($info['pm4_orders_status']=='4') { ?>
-                                    Pesanan Telah Diterima
+                                    Pesanan Telah Sampai di Tujuan
                                 <?php } if ($info['pm4_orders_status']=='5') { ?>
                                     Pesanan Gagal
                                 <?php } ?>
