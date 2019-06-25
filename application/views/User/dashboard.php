@@ -49,8 +49,8 @@
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-violet"><i class="icon-user"></i></div>
-                    <div class="title"><span>Pesanan<br>Hari Ini</span></div>
-                    <div class="number"><strong>-</strong></div>
+                    <div class="title"><span>Pesanan<br>Dalam Pengiriman</span></div>
+                    <div class="number"><strong><?php echo $pengiriman; ?></strong></div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -58,7 +58,7 @@
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-red"><i class="icon-padnote"></i></div>
                     <div class="title"><span>Total<br>Pesanan</span></div>
-                    <div class="number"><strong>-</strong></div>
+                    <div class="number"><strong><?php echo $total; ?></strong></div>
                   </div>
                 </div>
                 <!-- Item -->
@@ -66,15 +66,15 @@
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-green"><i class="icon-bill"></i></div>
                     <div class="title"><span>Pesanan<br>Sukses</span></div>
-                    <div class="number"><strong>-</strong></div>
+                    <div class="number"><strong><?php echo $sukses; ?></strong></div>
                   </div>
                 </div>
                 <!-- Item -->
                 <div class="col-xl-3 col-sm-6">
                   <div class="item d-flex align-items-center">
                     <div class="icon bg-orange"><i class="icon-check"></i></div>
-                    <div class="title"><span>Pesanan<br>Gagal</span></div>
-                    <div class="number"><strong>-</strong></div>
+                    <div class="title"><span>Pesanan<br>Dalam Proses</span></div>
+                    <div class="number"><strong><?php echo $proses; ?></strong></div>
                   </div>
                 </div>
               </div>

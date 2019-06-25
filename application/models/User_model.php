@@ -13,6 +13,37 @@ class User_model extends CI_Model{
         return $res; 
     } 
 
+    public function total()
+    {
+        $this->db->from('pm4_orders');
+        $this->db->where('pm4_orders_sender_email', $this->session->userdata('email'));        
+        return $this->db->get();
+    }
+
+    public function sukses()
+    {
+        $this->db->from('pm4_orders');
+        $this->db->where('pm4_orders_sender_email', $this->session->userdata('email'));
+        $this->db->where('pm4_orders_status', 4);
+        return $this->db->get();
+    }
+
+    public function pengiriman()
+    {
+        $this->db->from('pm4_orders');
+        $this->db->where('pm4_orders_sender_email', $this->session->userdata('email'));
+        $this->db->where('pm4_orders_status', 3);
+        return $this->db->get();
+    }
+
+    public function proses()
+    {
+        $this->db->from('pm4_orders');
+        $this->db->where('pm4_orders_sender_email', $this->session->userdata('email'));
+        $this->db->where('pm4_orders_status', 2);
+        return $this->db->get();
+    }
+
     public function cekUser($where)
     {
         $this->db->from('pm1_user');

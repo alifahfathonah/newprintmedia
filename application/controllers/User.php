@@ -38,10 +38,18 @@ class User extends CI_Controller
 	// Bagian Dashboard
 	public function dashboard()
 	{
-		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member'){
-			$this->load->view('user/dashboard');
+		if($this->session->userdata('status')=='login' && $this->session->userdata('akses')=='Member')
+		{
+			$data=array(
+				'total' => $this->User_model->total()->num_rows(),
+				'sukses' => $this->User_model->sukses()->num_rows(),
+				'pengiriman' => $this->User_model->pengiriman()->num_rows(),
+				'proses' => $this->User_model->proses()->num_rows(),
+			);
+			$this->load->view('user/dashboard', $data);
 		}
-		else{
+		else
+		{
 			redirect(base_url('login'));
 		}
 	}
